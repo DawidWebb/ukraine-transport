@@ -1,0 +1,20 @@
+@import "../../StylesRoot/common.scss";
+
+.wrapper {
+    .inside {
+        .burger {}
+
+        .menuMobile {
+            border: 1px solid black;
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            translate: $translate;
+        }
+
+        .menuDesktop {
+            display: none;
+        }
+    }
+}
