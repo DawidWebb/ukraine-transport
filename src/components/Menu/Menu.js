@@ -1,10 +1,14 @@
-import { useState } from "react";
-import { Button } from "..";
-import { menu } from "../../assets/languages/menu";
+import { useState, useCallback } from "react";
+import { useSelector } from "react-redux";
+import { Button, LoginPannel } from "../../components";
+import { MENU_LANG } from "../../assets/languages";
 import styles from "./menu.module.scss";
 
 const Menu = () => {
+  const language = useSelector((store) => store.language);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoginPannelOpen, setIsLoginPannelOpen] = useState(false);
 
   const handeOpenCloseMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -12,11 +16,18 @@ const Menu = () => {
 
   const handleOnClickButton = (e) => {
     setIsMenuOpen(!isMenuOpen);
+    if (e.target.id === "login") {
+      setIsLoginPannelOpen(true);
+    }
   };
 
-  const menuList = menu.map((item) => (
-    <div id={item.id}>
-      <Button name={item.pl} id={item.id} onClick={handleOnClickButton} />
+  const menuList = MENU_LANG.map((item) => (
+    <div key={item.id}>
+      <Button
+        name={language[0] === "PL" ? item.pl : item.ua}
+        id={item.id}
+        onClick={handleOnClickButton}
+      />
     </div>
   ));
   return (
@@ -44,6 +55,10 @@ const Menu = () => {
           <ul>{menuList}</ul>
         </div>
       </div>
+      <LoginPannel
+        isLoginPannelOpen={isLoginPannelOpen}
+        setIsLoginPannelOpen={setIsLoginPannelOpen}
+      />
     </div>
   );
 };

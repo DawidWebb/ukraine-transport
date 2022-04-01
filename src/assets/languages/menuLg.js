@@ -1,4 +1,4 @@
-export const menu = [
+const MENU_LANG = [
   {
     id: "start",
     pl: "start",
@@ -30,3 +30,4 @@ export const menu = [
     ua: "закрити",
   },
 ];
+export default MENU_LANG;

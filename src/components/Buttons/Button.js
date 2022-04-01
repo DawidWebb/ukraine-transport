@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 const Button = ({ name, type, id, onClick }) => {
+  const options = useMemo(
+    () => ({
+      name,
+      type,
+      id,
+      onClick,
+    }),
+    [name, type, id, onClick]
+  );
+
   return (
-    <button type={type} id={id} onClick={onClick}>
-      {name}
+    <button type={options.type} id={options.id} onClick={options.onClick}>
+      {options.name}
     </button>
   );
 };
