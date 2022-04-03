@@ -1,7 +1,6 @@
 export const addItem = (data) => {
   const user = {
     name: data.name,
-    access: data.access,
     loginId: data.loginId,
     id: data.id,
     addDate: data.addDate,

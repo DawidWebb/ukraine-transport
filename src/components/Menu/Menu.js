@@ -1,11 +1,18 @@
 import { useState, useCallback } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addLogout } from "../../data/actions";
 import { Button, LoginPannel } from "../../components";
-import { MENU_LANG } from "../../assets/languages";
+import { MENU_LANG, BTN_MENU_LNG } from "../../assets/languages";
 import styles from "./menu.module.scss";
 
 const Menu = () => {
   const language = useSelector((store) => store.language);
+  const cookie = useSelector((store) => store.cookie[0].isCookie);
+  const localStorage = useSelector(
+    (store) => store.localStorage[0].storageData
+  );
+
+  const dispatch = useDispatch();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoginPannelOpen, setIsLoginPannelOpen] = useState(false);
@@ -14,25 +21,56 @@ const Menu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleOnClickButton = (e) => {
-    setIsMenuOpen(!isMenuOpen);
+  const handleLoginLogOut = (e) => {
+    setIsMenuOpen(false);
     if (e.target.id === "login") {
       setIsLoginPannelOpen(true);
+    } else {
+      dispatch(addLogout());
     }
   };
 
-  const menuList = MENU_LANG.map((item) => (
-    <div key={item.id}>
-      <Button
-        name={language[0] === "PL" ? item.pl : item.ua}
-        id={item.id}
-        onClick={handleOnClickButton}
-      />
-    </div>
-  ));
+  const handleOnClickButton = (e) => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const menuList = MENU_LANG.map((item) => {
+    console.log(item.id);
+    return (
+      <div
+        key={item.id}
+        style={{
+          display: `${
+            item.id === "account" && !cookie && !localStorage ? "none" : "block"
+          }`,
+        }}
+      >
+        <Button
+          name={language[0] === "PL" ? item.pl : item.ua}
+          id={item.id}
+          onClick={handleOnClickButton}
+        />
+      </div>
+    );
+  });
   return (
     <div className={styles.wrapper}>
       <div className={styles.inside}>
+        <div className={styles.login}>
+          <Button
+            name={
+              !cookie && !localStorage
+                ? language[0] === "PL"
+                  ? BTN_MENU_LNG.pl
+                  : BTN_MENU_LNG.ua
+                : language[0] === "PL"
+                ? BTN_MENU_LNG.pl1
+                : BTN_MENU_LNG.ua1
+            }
+            id={!cookie && !localStorage ? "login" : "logout"}
+            onClick={handleLoginLogOut}
+          />
+        </div>
         <div className={styles.burger} onClick={handeOpenCloseMenu}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

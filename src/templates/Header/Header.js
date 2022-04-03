@@ -1,11 +1,17 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Menu } from "../../components";
-import { setLang } from "../../data/actions";
+import { cookieCheck, itemCheck, setLang } from "../../data/actions";
 import styles from "./header.module.scss";
 
 const Header = () => {
   const language = useSelector((store) => store.language);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(cookieCheck());
+    dispatch(itemCheck());
+  }, []);
 
   const handleOnChangeLanguage = () => {
     if (language[0] === "PL") {

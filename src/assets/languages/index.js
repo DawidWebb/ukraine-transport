@@ -1,2 +1,3 @@
 export * from "./loginPannelLg";
-export { default as MENU_LANG } from "./menuLg";
+export * from "./addUserLg";
+export * from "./menuLg";

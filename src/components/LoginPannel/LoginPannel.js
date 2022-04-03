@@ -127,7 +127,7 @@ const LoginPannel = ({ isLoginPannelOpen, setIsLoginPannelOpen }) => {
           <Link to="/" onClick={handleOnCloseLoginPannel}>
             {language[0] === "PL" ? LOST_PASS_LG.pl : LOST_PASS_LG.ua}
           </Link>
-          <Link to="/" onClick={handleOnCloseLoginPannel}>
+          <Link to="/add-user" onClick={handleOnCloseLoginPannel}>
             {language[0] === "PL" ? ADD_USER_LG.pl : ADD_USER_LG.ua}
           </Link>
         </div>

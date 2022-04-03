@@ -1,4 +1,4 @@
-const MENU_LANG = [
+export const MENU_LANG = [
   {
     id: "start",
     pl: "start",
@@ -14,11 +14,13 @@ const MENU_LANG = [
     pl: "potrzebny transport",
     ua: "потрібен транспорт",
   },
+
   {
-    id: "login",
-    pl: "zalaguj",
-    ua: "увійти",
+    id: "account",
+    pl: "moje konto",
+    ua: "мій рахунок",
   },
+
   {
     id: "contact",
     pl: "kontakt",
@@ -30,4 +32,9 @@ const MENU_LANG = [
     ua: "закрити",
   },
 ];
-export default MENU_LANG;
+export const BTN_MENU_LNG = {
+  pl: "zaloguj",
+  ua: "увійти",
+  pl1: "wyloguj",
+  ua2: "вийти",
+};

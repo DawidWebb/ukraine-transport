@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { StartViev } from "../../templates";
+import { AddUserPannel, StartViev } from "../../templates";
 
 const MainSwitch = () => {
   const cookie = useSelector((store) => store.cookie[0]);
@@ -9,6 +9,7 @@ const MainSwitch = () => {
     <>
       <Routes>
         <Route exact path="/" element={<StartViev />} />
+        <Route exact path="/add-user" element={<AddUserPannel />} />
 
         {/* {user.length || cookie.isCookie ? (
           <Route

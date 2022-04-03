@@ -19,6 +19,7 @@ export const SET_PASSWORD = "SET_PASSWORD";
 export const addUser = (userData) => async (dispatch) => {
   dispatch(addSpinner());
   const { data, status } = await request.post("users/add", userData);
+  console.log(data);
   if (status === 200) {
     dispatch(removeSpinner());
     dispatch(timeoutShowTask(`Użytkownik ${userData.name} dodany`));
@@ -106,6 +107,7 @@ export const userLogin = (userData) => async (dispatch) => {
   dispatch(addSpinner());
   const { data, status } = await request.post("users", userData);
   if (status === 200) {
+    console.log(data);
     dispatch(removeSpinner());
     dispatch({
       type: USER_LOGIN,
@@ -114,7 +116,6 @@ export const userLogin = (userData) => async (dispatch) => {
     dispatch(cookieSet(data.user.access));
     const userDataToStorege = {
       name: data.user.name,
-      access: data.user.access,
       loginId: data.user.loginId,
       id: data.user.id,
       addDate: data.user.addDate,
