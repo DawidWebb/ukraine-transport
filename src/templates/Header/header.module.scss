@@ -3,11 +3,16 @@
 .wrapper {
     width: 100%;
     height: 70px;
+    display: flex;
+    align-items: center;
+    justify-self: center;
 
     .inside {
         display: flex;
         width: 90%;
         margin: 0 auto;
+        justify-content: space-around;
+        align-items: center;
 
         .logoName {}
 
@@ -18,6 +23,10 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+        }
+
+        .menu {
+            flex-basis: 30%;
         }
     }
 }

@@ -2,6 +2,10 @@
 
 .wrapper {
     .inside {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
         .burger {}
 
         .menuMobile {

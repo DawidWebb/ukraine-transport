@@ -36,5 +36,5 @@ export const BTN_MENU_LNG = {
   pl: "zaloguj",
   ua: "увійти",
   pl1: "wyloguj",
-  ua2: "вийти",
+  ua1: "вийти",
 };

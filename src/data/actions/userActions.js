@@ -107,7 +107,6 @@ export const userLogin = (userData) => async (dispatch) => {
   dispatch(addSpinner());
   const { data, status } = await request.post("users", userData);
   if (status === 200) {
-    console.log(data);
     dispatch(removeSpinner());
     dispatch({
       type: USER_LOGIN,

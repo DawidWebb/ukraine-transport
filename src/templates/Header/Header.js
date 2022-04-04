@@ -6,12 +6,15 @@ import styles from "./header.module.scss";
 
 const Header = () => {
   const language = useSelector((store) => store.language);
+  const localStorage = useSelector(
+    (store) => store.localStorage[0].storageData
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(cookieCheck());
     dispatch(itemCheck());
-  }, []);
+  }, [dispatch]);
 
   const handleOnChangeLanguage = () => {
     if (language[0] === "PL") {
@@ -25,6 +28,7 @@ const Header = () => {
     <div className={styles.wrapper}>
       <div className={styles.inside}>
         <div className={styles.logoName}></div>
+
         <div
           className={styles.language}
           onClick={handleOnChangeLanguage}
@@ -36,7 +40,19 @@ const Header = () => {
             }`,
           }}
         ></div>
-        <Menu />
+        <div className={styles.userInfo}>
+          {!localStorage ? (
+            ""
+          ) : (
+            <p>
+              {localStorage.name}{" "}
+              {language[0] === "PL" ? "zalogowany" : "Зареєстровано"}
+            </p>
+          )}
+        </div>
+        <div className={styles.menu}>
+          <Menu />
+        </div>
       </div>
     </div>
   );

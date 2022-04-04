@@ -1,4 +1,5 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addLogout } from "../../data/actions";
 import { Button, LoginPannel } from "../../components";
@@ -13,6 +14,8 @@ const Menu = () => {
   );
 
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoginPannelOpen, setIsLoginPannelOpen] = useState(false);
@@ -32,10 +35,12 @@ const Menu = () => {
 
   const handleOnClickButton = (e) => {
     setIsMenuOpen(!isMenuOpen);
+    if (e.target.id === "haveTransport") {
+      navigate("/have-transport");
+    }
   };
 
   const menuList = MENU_LANG.map((item) => {
-    console.log(item.id);
     return (
       <div
         key={item.id}
