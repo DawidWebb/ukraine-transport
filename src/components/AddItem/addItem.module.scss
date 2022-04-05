@@ -1,0 +1,63 @@
+@import "../../StylesRoot/common.scss";
+
+.wrapper {
+    .form {
+        display: flex;
+        flex-direction: column;
+
+        .transport,
+        .dates,
+        .cities,
+        .parametrs,
+        .additional {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .stage {
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                border: 1px solid black;
+                text-align: center;
+            }
+
+            .element {
+                flex-basis: 80%;
+                display: flex;
+            }
+        }
+
+        .dates {
+
+
+            .stege {}
+
+            .element {}
+        }
+
+        .cities {
+
+
+            .stege {}
+
+            .element {}
+        }
+
+        .parametrs {
+
+            .stege {}
+
+            .element {}
+        }
+
+        .additional {
+
+            .stege {}
+
+            .element {}
+        }
+
+        .buttons {}
+    }
+}

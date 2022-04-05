@@ -1,20 +1,10 @@
-import React, { useMemo } from "react";
+import React from "react";
 
 const Button = ({ name, type, id, onClick }) => {
-  const options = useMemo(
-    () => ({
-      name,
-      type,
-      id,
-      onClick,
-    }),
-    [name, type, id, onClick]
-  );
-
   return (
-    <button type={options.type} id={options.id} onClick={options.onClick}>
-      {options.name}
+    <button type={type} id={id} onClick={onClick}>
+      {name}
     </button>
   );
 };
-export default React.memo(Button);
+export default Button;

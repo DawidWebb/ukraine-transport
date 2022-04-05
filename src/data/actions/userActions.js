@@ -19,7 +19,6 @@ export const SET_PASSWORD = "SET_PASSWORD";
 export const addUser = (userData) => async (dispatch) => {
   dispatch(addSpinner());
   const { data, status } = await request.post("users/add", userData);
-  console.log(data);
   if (status === 200) {
     dispatch(removeSpinner());
     dispatch(timeoutShowTask(`Użytkownik ${userData.name} dodany`));

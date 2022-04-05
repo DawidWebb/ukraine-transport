@@ -35,7 +35,9 @@ const Menu = () => {
 
   const handleOnClickButton = (e) => {
     setIsMenuOpen(!isMenuOpen);
-    if (e.target.id === "haveTransport") {
+    if (e.target.id === "start") {
+      navigate("/");
+    } else if (e.target.id === "haveTransport") {
       navigate("/have-transport");
     }
   };
