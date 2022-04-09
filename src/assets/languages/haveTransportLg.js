@@ -7,6 +7,10 @@ export const INFO_LG = {
   ua: "Увійдіть, щоб додати порожні автомобілі і подивіться контакт із заявником",
 };
 
+export const EMPTY_LG = {
+  pl: "Nie ma dodanych żadnych wolnych pojazdów",
+  ua: "Немає доданих безкоштовних транспортних засобів",
+};
 export const SEARCH_LG = {
   pl: "Wpisz miasto",
   ua: "Увійти в місто",
@@ -25,6 +29,7 @@ export const SHOW_BTN_LG = {
 export const KIND_TRANSPORT_LG = [
   { id: "heavy", pl: "towarowy", ua: "торгова марка" },
   { id: "people", pl: "osobowy", ua: "особистий" },
+  { id: "all", pl: "wszystko", ua: "всі" },
 ];
 
 export const DATE_AVAILABILITY_LG = [

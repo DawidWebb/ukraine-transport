@@ -1,5 +1,6 @@
 export * from "./cookieAction";
 export * from "./itemActions";
+export * from "./kindOfItemActions";
 export * from "./languageActions";
 export * from "./localStorageActions";
 export * from "./spinnerActions";
