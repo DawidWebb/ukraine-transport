@@ -1,17 +1,26 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {detTransport} from "../../data/actions";
+import { Button } from "../Buttons";
 import {
   HEAVY_TRANSPORT_LG,
   PEOPLE_TRANSPORT_LG,
+  BUTTONS_TRANSPORT_LG
 } from "../../assets/languages";
 import styles from "./transportItem.module.scss";
 
-const TransportItem = ({ item }) => {
+const TransportItem = ({ item, buttons }) => {
   const language = useSelector((store) => store.language);
   const localStorage = useSelector(
     (store) => store.localStorage[0].storageData
   );
   const cookie = useSelector((store) => store.cookie[0].isCookie);
+
+  const dispatch = useDispatch()
+
+  const handleOnDeleteItem = (e)=>{
+    dispatch(detTransport(e.target.id))
+  }
 
   const title =
     item.kindOfTransport === "heavy"
@@ -92,6 +101,18 @@ const TransportItem = ({ item }) => {
           <p>{item.describe}</p>
           <p>{offerContact}</p>
         </div>
+        {!buttons?"":( <div className={styles.buttons}>
+          <Button onClick={handleOnDeleteItem} id={item._id} name={language[0] === "PL"
+        ?   BUTTONS_TRANSPORT_LG
+        [0].pl
+        :   BUTTONS_TRANSPORT_LG
+        [0].ua}/> 
+          <Button name={language[0] === "PL"
+        ?   BUTTONS_TRANSPORT_LG
+        [1].pl
+        :   BUTTONS_TRANSPORT_LG
+        [1].ua}/>
+        </div> )}
       </div>
     </div>
   );

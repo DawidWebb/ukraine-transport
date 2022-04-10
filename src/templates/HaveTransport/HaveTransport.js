@@ -73,7 +73,7 @@ const HaveTransport = () => {
       : EMPTY_LG.ua
     : foundItems.map((item) => {
         if (selectedCity === "") {
-          return <TransportItem key={item._id} item={item} />;
+          return <TransportItem key={item._id} item={item} buttons={false}/>;
         } else if (
           item.loadCity.toUpperCase().includes(selectedCity.toUpperCase()) ||
           item.delCity.toUpperCase().includes(selectedCity.toUpperCase())

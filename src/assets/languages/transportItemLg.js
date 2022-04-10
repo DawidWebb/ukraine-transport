@@ -47,3 +47,16 @@ export const PEOPLE_TRANSPORT_LG = [
     ua: "контакт",
   },
 ];
+
+export const BUTTONS_TRANSPORT_LG = [
+  {
+    id: "btnDelTranspoort",
+    pl: "usuń",
+    ua: "видалити",
+  },
+  {
+    id: "btnEditTranspoort",
+    pl: "edytuj",
+    ua: "редагувати",
+  },
+]
