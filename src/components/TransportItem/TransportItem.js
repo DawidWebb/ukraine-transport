@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {detTransport} from "../../data/actions";
-import { Button } from "../Buttons";
+import { Button, DeleteConfirmation } from "../../components";
 import {
   HEAVY_TRANSPORT_LG,
   PEOPLE_TRANSPORT_LG,
-  BUTTONS_TRANSPORT_LG
+  BUTTONS_TRANSPORT_LG,
 } from "../../assets/languages";
 import styles from "./transportItem.module.scss";
 
@@ -16,11 +15,21 @@ const TransportItem = ({ item, buttons }) => {
   );
   const cookie = useSelector((store) => store.cookie[0].isCookie);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const handleOnDeleteItem = (e)=>{
-    dispatch(detTransport(e.target.id))
-  }
+  const [isDeleteConfirmationModalOpen, setIsDeleteConfirmationModalOpen] =
+    useState(false);
+
+  const [elementToDel, setElementToDel] = useState(false);
+
+  const handleOnDeleteItem = (e) => {
+    const elementToDel = {
+      nameElementToDel: "transport",
+      idElementToDel: e.target.id,
+    };
+    setElementToDel(elementToDel);
+    setIsDeleteConfirmationModalOpen(true);
+  };
 
   const title =
     item.kindOfTransport === "heavy"
@@ -101,19 +110,34 @@ const TransportItem = ({ item, buttons }) => {
           <p>{item.describe}</p>
           <p>{offerContact}</p>
         </div>
-        {!buttons?"":( <div className={styles.buttons}>
-          <Button onClick={handleOnDeleteItem} id={item._id} name={language[0] === "PL"
-        ?   BUTTONS_TRANSPORT_LG
-        [0].pl
-        :   BUTTONS_TRANSPORT_LG
-        [0].ua}/> 
-          <Button name={language[0] === "PL"
-        ?   BUTTONS_TRANSPORT_LG
-        [1].pl
-        :   BUTTONS_TRANSPORT_LG
-        [1].ua}/>
-        </div> )}
+        {!buttons ? (
+          ""
+        ) : (
+          <div className={styles.buttons}>
+            <Button
+              onClick={handleOnDeleteItem}
+              id={item._id}
+              name={
+                language[0] === "PL"
+                  ? BUTTONS_TRANSPORT_LG[0].pl
+                  : BUTTONS_TRANSPORT_LG[0].ua
+              }
+            />
+            <Button
+              name={
+                language[0] === "PL"
+                  ? BUTTONS_TRANSPORT_LG[1].pl
+                  : BUTTONS_TRANSPORT_LG[1].ua
+              }
+            />
+          </div>
+        )}
       </div>
+      <DeleteConfirmation
+        isDeleteConfirmationModalOpen={isDeleteConfirmationModalOpen}
+        setIsDeleteConfirmationModalOpen={setIsDeleteConfirmationModalOpen}
+        elementToDel={elementToDel}
+      />
     </div>
   );
 };

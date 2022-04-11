@@ -1,6 +1,6 @@
 import { HashRouter as Router } from "react-router-dom";
 import { Fragment } from "react";
-import { MainSwitch, TaskInformation } from "./components";
+import { MainSwitch, TaskInformation, Spinner } from "./components";
 import { Header } from "./templates";
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
       <Fragment>
         <MainSwitch />
       </Fragment>
-      {/* <Spinner /> */}
+      <Spinner />
       <TaskInformation />
     </Router>
   );

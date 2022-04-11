@@ -31,7 +31,7 @@ export const addTransport = (transportData) => async (dispatch) => {
   }
 };
 
-export const detTransport = (id)=> async (dispatch )=>{
+export const delTransport = (id) => async (dispatch) => {
   dispatch(addSpinner());
   const { data, status } = await request.delete(`have-transport/${id}`);
   if (status === 200) {
@@ -44,4 +44,4 @@ export const detTransport = (id)=> async (dispatch )=>{
     dispatch(removeSpinner());
     dispatch(timeoutShowTask(data.message));
   }
- }
+};
