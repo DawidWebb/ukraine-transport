@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllTransports, setKindOfItem } from "../../data/actions";
+import { getAllNeeds, setKindOfItem } from "../../data/actions";
 import { AddItem, Button, TransportItem } from "../../components";
 import {
   TITLE_LG,
@@ -11,16 +11,16 @@ import {
   ADD_BTN_LG,
   SHOW_BTN_LG,
   KIND_TRANSPORT_LG,
-} from "../../assets/languages";
-import styles from "./haveTransport.module.scss";
+} from "../../assets/languages/needHaveTransportLg";
+import styles from "./needTransport.module.scss";
 
-const HaveTransport = () => {
+const NeedTransport = () => {
   const language = useSelector((store) => store.language);
   const cookie = useSelector((store) => store.cookie[0].isCookie);
   const localStorage = useSelector(
     (store) => store.localStorage[0].storageData
   );
-  const transportItem = useSelector((store) => store.transportItem);
+  const needsItem = useSelector((store) => store.needsItem);
 
   const dispatch = useDispatch();
 
@@ -32,18 +32,18 @@ const HaveTransport = () => {
 
   const foundItems = [];
   const items = () => {
-    if (!transportItem.length) {
+    if (!needsItem.length) {
       return;
     } else if (kindOfTransport === "all") {
-      transportItem.map((item) => foundItems.push(item));
+      needsItem.map((item) => foundItems.push(item));
     } else if (kindOfTransport === "heavy") {
-      transportItem.map((item) => {
+      needsItem.map((item) => {
         if (item.kindOfTransport === kindOfTransport) {
           foundItems.push(item);
         }
       });
     } else if (kindOfTransport === "pepole") {
-      transportItem.map((item) => {
+      needsItem.map((item) => {
         if (item.kindOfTransport === kindOfTransport) {
           foundItems.push(item);
         }
@@ -54,7 +54,7 @@ const HaveTransport = () => {
   items();
 
   useEffect(() => {
-    dispatch(getAllTransports());
+    dispatch(getAllNeeds());
   }, [dispatch]);
 
   const handleChangeCity = (e) => {
@@ -78,14 +78,14 @@ const HaveTransport = () => {
               key={item._id}
               item={item}
               buttons={false}
-              kindOfItem="have"
+              kindOfItem="need"
             />
           );
         } else if (
           item.loadCity.toUpperCase().includes(selectedCity.toUpperCase()) ||
           item.delCity.toUpperCase().includes(selectedCity.toUpperCase())
         ) {
-          return <TransportItem key={item._id} item={item} kindOfItem="have" />;
+          return <TransportItem key={item._id} item={item} kindOfItem="need" />;
         }
       });
 
@@ -102,13 +102,13 @@ const HaveTransport = () => {
     <div className={styles.wrapper}>
       <div className={styles.inside}>
         <div className={styles.info}>
-          <h2>{language[0] === "PL" ? TITLE_LG[0].pl : TITLE_LG[0].ua}</h2>
+          <h2>{language[0] === "PL" ? TITLE_LG[1].pl : TITLE_LG[1].ua}</h2>
           <p
             style={{
               display: `${!cookie && !localStorage ? "block" : "none"}`,
             }}
           >
-            {language[0] === "PL" ? INFO_LG[0].pl : INFO_LG[0].ua}
+            {language[0] === "PL" ? INFO_LG[1].pl : INFO_LG[1].ua}
           </p>
           <form>
             <input
@@ -152,12 +152,12 @@ const HaveTransport = () => {
         >
           <Button
             type="button"
-            name={language[0] === "PL" ? ADD_BTN_LG[0].pl : ADD_BTN_LG[0].ua}
+            name={language[0] === "PL" ? ADD_BTN_LG[1].pl : ADD_BTN_LG[1].ua}
             onClick={handleAddVechicle}
           />
           <Button
             type="button"
-            name={language[0] === "PL" ? SHOW_BTN_LG[0].pl : SHOW_BTN_LG[0].ua}
+            name={language[0] === "PL" ? SHOW_BTN_LG[1].pl : SHOW_BTN_LG[1].ua}
             onClick={handleShowMyVechicle}
             id="vechicles"
           />
@@ -167,10 +167,10 @@ const HaveTransport = () => {
       <AddItem
         isAddVechicleModalOpen={isAddVechicleModalOpen}
         setIsAddVechicleModalOpen={setIsAddVechicleModalOpen}
-        kindOfItem="have"
+        kindOfItem="need"
       />
     </div>
   );
 };
 
-export default React.memo(HaveTransport);
+export default React.memo(NeedTransport);

@@ -1,6 +1,11 @@
 import { useSelector } from "react-redux";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { AddUserPannel, HaveTransport, StartViev } from "../../templates";
+import {
+  AddUserPannel,
+  HaveTransport,
+  NeedTransport,
+  StartViev,
+} from "../../templates";
 import { MyItems } from "../../components";
 
 const MainSwitch = () => {
@@ -15,6 +20,7 @@ const MainSwitch = () => {
         <Route exact path="/" element={<StartViev />} />
         <Route exact path="/add-user" element={<AddUserPannel />} />
         <Route exact path="/have-transport" element={<HaveTransport />} />
+        <Route exact path="/need-transport" element={<NeedTransport />} />
 
         {user.length || cookie.isCookie || localStorage ? (
           <Route exact path="/my-items" element={<MyItems />} />

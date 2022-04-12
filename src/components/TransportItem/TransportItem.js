@@ -8,7 +8,7 @@ import {
 } from "../../assets/languages";
 import styles from "./transportItem.module.scss";
 
-const TransportItem = ({ item, buttons }) => {
+const TransportItem = ({ item, buttons, kindOfItem }) => {
   const language = useSelector((store) => store.language);
   const localStorage = useSelector(
     (store) => store.localStorage[0].storageData
@@ -36,7 +36,7 @@ const TransportItem = ({ item, buttons }) => {
     setIsDeleteConfirmationModalOpen(true);
   };
 
-  const title =
+  const titleHave =
     item.kindOfTransport === "heavy"
       ? language[0] === "PL"
         ? HEAVY_TRANSPORT_LG[0].pl
@@ -44,6 +44,17 @@ const TransportItem = ({ item, buttons }) => {
       : language[0] === "PL"
       ? PEOPLE_TRANSPORT_LG[0].pl
       : PEOPLE_TRANSPORT_LG[0].ua;
+
+  const titleNeed =
+    item.kindOfTransport === "heavy"
+      ? language[0] === "PL"
+        ? HEAVY_TRANSPORT_LG[6].pl
+        : HEAVY_TRANSPORT_LG[6].ua
+      : language[0] === "PL"
+      ? PEOPLE_TRANSPORT_LG[3].pl
+      : PEOPLE_TRANSPORT_LG[3].ua;
+
+  const selectedTitle = kindOfItem === "have" ? titleHave : titleNeed;
 
   const routes =
     language[0] === "PL" ? HEAVY_TRANSPORT_LG[1].pl : HEAVY_TRANSPORT_LG[1].ua;
@@ -85,7 +96,7 @@ const TransportItem = ({ item, buttons }) => {
     <div className={styles.wrapper}>
       <div className={styles.inside}>
         <h3>
-          {title}: {item.kindOfTruck}
+          {selectedTitle}: {item.kindOfTruck}
         </h3>
         <div className={styles.routes}>
           <p>{routes}:</p>

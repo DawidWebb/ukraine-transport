@@ -29,6 +29,11 @@ export const HEAVY_TRANSPORT_LG = [
     pl: "ilość",
     ua: "кількість",
   },
+  {
+    id: "needTruck",
+    pl: "potrzebny transport towarów",
+    ua: "транспортування необхідних вантажів",
+  },
 ];
 export const PEOPLE_TRANSPORT_LG = [
   {
@@ -46,6 +51,11 @@ export const PEOPLE_TRANSPORT_LG = [
     pl: "kontakt",
     ua: "контакт",
   },
+  {
+    id: "needTruck",
+    pl: "potrzebny transport osób",
+    ua: "потрібен транспорт людей",
+  },
 ];
 
 export const BUTTONS_TRANSPORT_LG = [
@@ -59,4 +69,4 @@ export const BUTTONS_TRANSPORT_LG = [
     pl: "edytuj",
     ua: "редагувати",
   },
-]
+];

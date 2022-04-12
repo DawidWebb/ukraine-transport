@@ -5,6 +5,11 @@ export const ADD_TRANSPORT = "ADD_TRANSPORT";
 export const EDIT_TRANSPORT = "EDIT_TRANSPORT";
 export const DEL_TRANSPORT = "DEL_TRANSPORT";
 
+export const GET_ALL_NEEDS = "GET_ALL_NEEDS";
+export const ADD_NEEDS = "ADD_NEEDS";
+export const EDIT_NEEDS = "EDIT_NEEDS";
+export const DEL_NEEDS = "DEL_NEEDS";
+
 export const getAllTransports = () => async (dispatch) => {
   dispatch(addSpinner());
   const { data, status } = await request.get("have-transport");
@@ -17,6 +22,18 @@ export const getAllTransports = () => async (dispatch) => {
   }
 };
 
+export const getAllNeeds = () => async (dispatch) => {
+  dispatch(addSpinner());
+  const { data, status } = await request.get("need-transport");
+  if (status === 200) {
+    dispatch(removeSpinner());
+    dispatch({
+      type: GET_ALL_NEEDS,
+      payload: data.data,
+    });
+  }
+};
+
 export const addTransport = (transportData) => async (dispatch) => {
   dispatch(addSpinner());
   const { data, status } = await request.post("have-transport", transportData);
@@ -24,6 +41,20 @@ export const addTransport = (transportData) => async (dispatch) => {
     dispatch(removeSpinner());
     dispatch({
       type: ADD_TRANSPORT,
+      payload: data.data,
+    });
+  } else {
+    dispatch(removeSpinner());
+    dispatch(timeoutShowTask(data.message));
+  }
+};
+export const addNeeds = (transportData) => async (dispatch) => {
+  dispatch(addSpinner());
+  const { data, status } = await request.post("need-transport", transportData);
+  if (status === 201) {
+    dispatch(removeSpinner());
+    dispatch({
+      type: ADD_NEEDS,
       payload: data.data,
     });
   } else {

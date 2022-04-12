@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Field } from "react-final-form";
 import { useDispatch, useSelector } from "react-redux";
-import { addTransport } from "../../data/actions";
+import { addTransport, addNeeds } from "../../data/actions";
 import { Button, Modal } from "../../components";
 import {
   GENERAL_BTN_EXIT,
@@ -14,7 +14,11 @@ import {
 } from "../../assets/languages";
 import styles from "./addItem.module.scss";
 
-const AddItem = ({ isAddVechicleModalOpen, setIsAddVechicleModalOpen }) => {
+const AddItem = ({
+  isAddVechicleModalOpen,
+  setIsAddVechicleModalOpen,
+  kindOfItem,
+}) => {
   const language = useSelector((store) => store.language);
   const localStorage = useSelector(
     (store) => store.localStorage[0].storageData
@@ -48,7 +52,12 @@ const AddItem = ({ isAddVechicleModalOpen, setIsAddVechicleModalOpen }) => {
       contact: values.contact,
       kindOfTransport: values.kindOfTransport,
     };
-    dispatch(addTransport(transportData));
+
+    if (kindOfItem === "have") {
+      dispatch(addTransport(transportData));
+    } else {
+      dispatch(addNeeds(transportData));
+    }
     setIsAddVechicleModalOpen(false);
   };
 
