@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { addTransport } from "../../data/actions";
 import { Button, Modal } from "../../components";
 import {
-  CLOSE_BTN_LG,
-  FORRWARD_BTN_LG,
-  WORRNING_LANG,
+  GENERAL_BTN_EXIT,
+  GENERAL_BTN_FORW,
+  GENERAL_REQUIRED_INFO,
   KIND_TRANSPORT_LG,
   DATE_AVAILABILITY_LG,
   CITIES_TRANSPORT_LG,
@@ -26,8 +26,8 @@ const AddItem = ({ isAddVechicleModalOpen, setIsAddVechicleModalOpen }) => {
     value
       ? undefined
       : language[0] === "PL"
-      ? WORRNING_LANG[0].pl
-      : WORRNING_LANG[0].ua;
+      ? GENERAL_REQUIRED_INFO.pl
+      : GENERAL_REQUIRED_INFO.ua;
 
   const handleOnCloseAddVechicleModal = () => {
     setIsAddVechicleModalOpen(false);
@@ -279,7 +279,9 @@ const AddItem = ({ isAddVechicleModalOpen, setIsAddVechicleModalOpen }) => {
                   <Button
                     type="button"
                     name={
-                      language[0] === "PL" ? CLOSE_BTN_LG.pl : CLOSE_BTN_LG.ua
+                      language[0] === "PL"
+                        ? GENERAL_BTN_EXIT.pl
+                        : GENERAL_BTN_EXIT.ua
                     }
                     onClick={handleOnCloseAddVechicleModal}
                   />
@@ -293,8 +295,8 @@ const AddItem = ({ isAddVechicleModalOpen, setIsAddVechicleModalOpen }) => {
                     type="submit"
                     name={
                       language[0] === "PL"
-                        ? FORRWARD_BTN_LG.pl
-                        : FORRWARD_BTN_LG.ua
+                        ? GENERAL_BTN_FORW.pl
+                        : GENERAL_BTN_FORW.ua
                     }
                   />
                 </div>

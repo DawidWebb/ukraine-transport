@@ -6,6 +6,9 @@ import { MyItems } from "../../components";
 const MainSwitch = () => {
   const cookie = useSelector((store) => store.cookie[0]);
   const user = useSelector((store) => store.user);
+  const localStorage = useSelector(
+    (store) => store.localStorage[0].storageData
+  );
   return (
     <>
       <Routes>
@@ -13,7 +16,7 @@ const MainSwitch = () => {
         <Route exact path="/add-user" element={<AddUserPannel />} />
         <Route exact path="/have-transport" element={<HaveTransport />} />
 
-        {user.length || cookie.isCookie ? (
+        {user.length || cookie.isCookie || localStorage ? (
           <Route exact path="/my-items" element={<MyItems />} />
         ) : (
           <Route exact path="/" element={<StartViev />} />

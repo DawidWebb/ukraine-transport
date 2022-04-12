@@ -5,11 +5,11 @@ import { userLogin } from "../../data/actions";
 import { Form, Field } from "react-final-form";
 import { Button, Modal } from "../../components";
 import {
-  CLOSE_BTN_LG,
-  FORRWARD_BTN_LG,
+  GENERAL_BTN_FORW,
+  GENERAL_BTN_CLOSE,
   ADD_USER_LG,
   LOST_PASS_LG,
-  WORRNING_LANG,
+  GENERAL_REQUIRED_INFO,
 } from "../../assets/languages";
 
 import styles from "./loginPannel.module.scss";
@@ -31,8 +31,8 @@ const LoginPannel = ({ isLoginPannelOpen, setIsLoginPannelOpen }) => {
     value
       ? undefined
       : language[0] === "PL"
-      ? WORRNING_LANG[0].pl
-      : WORRNING_LANG[0].ua;
+      ? GENERAL_REQUIRED_INFO.pl
+      : GENERAL_REQUIRED_INFO.ua;
 
   const handleOnCloseLoginPannel = () => {
     options.setIsLoginPannelOpen(false);
@@ -107,7 +107,9 @@ const LoginPannel = ({ isLoginPannelOpen, setIsLoginPannelOpen }) => {
                 <Button
                   type="button"
                   name={
-                    language[0] === "PL" ? CLOSE_BTN_LG.pl : CLOSE_BTN_LG.ua
+                    language[0] === "PL"
+                      ? GENERAL_BTN_CLOSE.pl
+                      : GENERAL_BTN_CLOSE.ua
                   }
                   onClick={handleOnCloseLoginPannel}
                 />
@@ -115,8 +117,8 @@ const LoginPannel = ({ isLoginPannelOpen, setIsLoginPannelOpen }) => {
                   type="submit"
                   name={
                     language[0] === "PL"
-                      ? FORRWARD_BTN_LG.pl
-                      : FORRWARD_BTN_LG.ua
+                      ? GENERAL_BTN_FORW.pl
+                      : GENERAL_BTN_FORW.ua
                   }
                 />
               </div>

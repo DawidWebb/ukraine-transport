@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, DeleteConfirmation } from "../../components";
+import { Button, DeleteConfirmation, EditItem } from "../../components";
 import {
   HEAVY_TRANSPORT_LG,
   PEOPLE_TRANSPORT_LG,
@@ -17,10 +17,15 @@ const TransportItem = ({ item, buttons }) => {
 
   const dispatch = useDispatch();
 
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [elementToDel, setElementToDel] = useState(false);
+
   const [isDeleteConfirmationModalOpen, setIsDeleteConfirmationModalOpen] =
     useState(false);
 
-  const [elementToDel, setElementToDel] = useState(false);
+  const handleOnOpenEditModule = () => {
+    setIsEditModalOpen(true);
+  };
 
   const handleOnDeleteItem = (e) => {
     const elementToDel = {
@@ -124,6 +129,7 @@ const TransportItem = ({ item, buttons }) => {
               }
             />
             <Button
+              onClick={handleOnOpenEditModule}
               name={
                 language[0] === "PL"
                   ? BUTTONS_TRANSPORT_LG[1].pl
@@ -133,6 +139,12 @@ const TransportItem = ({ item, buttons }) => {
           </div>
         )}
       </div>
+      <EditItem
+        isEditModalOpen={isEditModalOpen}
+        setIsEditModalOpen={setIsEditModalOpen}
+        item={item}
+        id={item._id}
+      />
       <DeleteConfirmation
         isDeleteConfirmationModalOpen={isDeleteConfirmationModalOpen}
         setIsDeleteConfirmationModalOpen={setIsDeleteConfirmationModalOpen}

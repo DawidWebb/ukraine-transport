@@ -5,9 +5,9 @@ import { taskMessengerOnly, addUser } from "../../data/actions";
 import { Form, Field } from "react-final-form";
 import { Button } from "../../components";
 import {
-  CLOSE_BTN_LG,
-  FORRWARD_BTN_LG,
-  WORRNING_LANG,
+  GENERAL_BTN_EXIT,
+  GENERAL_BTN_SAVE,
+  GENERAL_REQUIRED_INFO,
   ADD_USER_TITLE_LG,
   ADD_USER_NAME_LG,
   ADD_USER_MAIL_LG,
@@ -55,8 +55,8 @@ const AddUserPannel = () => {
     value
       ? undefined
       : language[0] === "PL"
-      ? WORRNING_LANG[0].pl
-      : WORRNING_LANG[0].ua;
+      ? GENERAL_REQUIRED_INFO.pl
+      : GENERAL_REQUIRED_INFO.ua;
   return (
     <div className={styles.wrapper}>
       <h2>
@@ -190,7 +190,9 @@ const AddUserPannel = () => {
                 <Button
                   type="button"
                   name={
-                    language[0] === "PL" ? CLOSE_BTN_LG.pl : CLOSE_BTN_LG.ua
+                    language[0] === "PL"
+                      ? GENERAL_BTN_EXIT.pl
+                      : GENERAL_BTN_EXIT.ua
                   }
                   onClick={handleOnGoToStart}
                 />
@@ -198,8 +200,8 @@ const AddUserPannel = () => {
                   type="submit"
                   name={
                     language[0] === "PL"
-                      ? FORRWARD_BTN_LG.pl
-                      : FORRWARD_BTN_LG.ua
+                      ? GENERAL_BTN_SAVE.pl
+                      : GENERAL_BTN_SAVE.ua
                   }
                 />
               </div>

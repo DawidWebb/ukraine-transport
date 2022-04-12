@@ -2,6 +2,7 @@ import request from "../../helpers/request";
 import { addSpinner, removeSpinner, timeoutShowTask } from "./index";
 export const GET_ALL_TRANSPORTS = "GET_ALL_TRANSPORTS";
 export const ADD_TRANSPORT = "ADD_TRANSPORT";
+export const EDIT_TRANSPORT = "EDIT_TRANSPORT";
 export const DEL_TRANSPORT = "DEL_TRANSPORT";
 
 export const getAllTransports = () => async (dispatch) => {
@@ -23,6 +24,21 @@ export const addTransport = (transportData) => async (dispatch) => {
     dispatch(removeSpinner());
     dispatch({
       type: ADD_TRANSPORT,
+      payload: data.data,
+    });
+  } else {
+    dispatch(removeSpinner());
+    dispatch(timeoutShowTask(data.message));
+  }
+};
+
+export const editTransport = (transportData) => async (dispatch) => {
+  dispatch(addSpinner());
+  const { data, status } = await request.put("have-transport", transportData);
+  if (status === 202) {
+    dispatch(removeSpinner());
+    dispatch({
+      type: EDIT_TRANSPORT,
       payload: data.data,
     });
   } else {
