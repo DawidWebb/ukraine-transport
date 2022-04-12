@@ -17,6 +17,7 @@ const MyItems = () => {
     (store) => store.localStorage[0].storageData
   );
   const transportItem = useSelector((store) => store.transportItem);
+  const needsItem = useSelector((store) => store.needsItem);
 
   const navigate = useNavigate();
 
@@ -26,16 +27,43 @@ const MyItems = () => {
     setIsAddVechicleModalOpen(true);
   };
   const handleShowAllVechicle = () => {
-    navigate("/have-transport");
+    if (kindOfItem === "have") {
+      navigate("/have-transport");
+    } else if (kindOfItem === "needs") {
+      navigate("/need-transport");
+    }
   };
-  const myTransportItemsViev = transportItem.map((item) => {
+
+  const transportViev = transportItem.map((item) => {
     if (item.userId === localStorage.id) {
-      return <TransportItem key={item._id} item={item} buttons={true} />;
+      return (
+        <TransportItem
+          key={item._id}
+          item={item}
+          kindOfItem={kindOfItem}
+          buttons={true}
+        />
+      );
     }
   });
 
+  const needsViev = needsItem.map((item) => {
+    if (item.userId === localStorage.id) {
+      return (
+        <TransportItem
+          key={item._id}
+          item={item}
+          kindOfItem={kindOfItem}
+          buttons={true}
+        />
+      );
+    }
+  });
+
+  const selectedViev = kindOfItem === "have" ? transportViev : needsViev;
+
   const title =
-    kindOfItem === "vechicles"
+    kindOfItem === "have"
       ? language[0] === "PL"
         ? VECHICLE_ITEMS_LG[0].pl
         : VECHICLE_ITEMS_LG[0].ua
@@ -43,41 +71,58 @@ const MyItems = () => {
       ? NEEDS_ITEMS_LG[0].pl
       : NEEDS_ITEMS_LG[0].ua;
 
-  const operationButtons = "vehicles" ? (
-    <>
-      <Button
-        type="button"
-        name={
-          language[0] === "PL"
-            ? VECHICLE_ITEMS_LG[2].pl
-            : VECHICLE_ITEMS_LG[2].ua
-        }
-        onClick={handleAddVechicle}
-      />
-      <Button
-        type="button"
-        name={
-          language[0] === "PL"
-            ? VECHICLE_ITEMS_LG[3].pl
-            : VECHICLE_ITEMS_LG[3].ua
-        }
-        onClick={handleShowAllVechicle}
-      />
-    </>
-  ) : (
-    ""
-  );
+  const operationButtons =
+    kindOfItem === "have" ? (
+      <>
+        <Button
+          type="button"
+          name={
+            language[0] === "PL"
+              ? VECHICLE_ITEMS_LG[2].pl
+              : VECHICLE_ITEMS_LG[2].ua
+          }
+          onClick={handleAddVechicle}
+        />
+        <Button
+          type="button"
+          name={
+            language[0] === "PL"
+              ? VECHICLE_ITEMS_LG[3].pl
+              : VECHICLE_ITEMS_LG[3].ua
+          }
+          onClick={handleShowAllVechicle}
+        />
+      </>
+    ) : (
+      <>
+        <Button
+          type="button"
+          name={
+            language[0] === "PL" ? NEEDS_ITEMS_LG[2].pl : NEEDS_ITEMS_LG[2].ua
+          }
+          onClick={handleAddVechicle}
+        />
+        <Button
+          type="button"
+          name={
+            language[0] === "PL" ? NEEDS_ITEMS_LG[3].pl : NEEDS_ITEMS_LG[3].ua
+          }
+          onClick={handleShowAllVechicle}
+        />
+      </>
+    );
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.inside}>
         <h2>{title}</h2>
         <div className={styles.operation}>{operationButtons}</div>
-        <div className={styles.itemsViev}>{myTransportItemsViev}</div>
+        <div className={styles.itemsViev}>{selectedViev}</div>
       </div>
       <AddItem
         isAddVechicleModalOpen={isAddVechicleModalOpen}
         setIsAddVechicleModalOpen={setIsAddVechicleModalOpen}
+        kindOfItem={kindOfItem}
       />
     </div>
   );

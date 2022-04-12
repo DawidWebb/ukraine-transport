@@ -89,11 +89,11 @@ const NeedTransport = () => {
         }
       });
 
-  const handleAddVechicle = () => {
+  const handleAddNeeds = () => {
     setIsAddVechicleModalOpen(true);
   };
 
-  const handleShowMyVechicle = (e) => {
+  const handleShowMyNeeds = (e) => {
     dispatch(setKindOfItem(e.target.id));
     navigate("/my-items");
   };
@@ -153,13 +153,13 @@ const NeedTransport = () => {
           <Button
             type="button"
             name={language[0] === "PL" ? ADD_BTN_LG[1].pl : ADD_BTN_LG[1].ua}
-            onClick={handleAddVechicle}
+            onClick={handleAddNeeds}
           />
           <Button
             type="button"
             name={language[0] === "PL" ? SHOW_BTN_LG[1].pl : SHOW_BTN_LG[1].ua}
-            onClick={handleShowMyVechicle}
-            id="vechicles"
+            onClick={handleShowMyNeeds}
+            id="need"
           />
         </div>
         <div className={styles.itemsViev}>{transportItemsSearchByCityViev}</div>

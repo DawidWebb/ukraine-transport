@@ -159,7 +159,7 @@ const HaveTransport = () => {
             type="button"
             name={language[0] === "PL" ? SHOW_BTN_LG[0].pl : SHOW_BTN_LG[0].ua}
             onClick={handleShowMyVechicle}
-            id="vechicles"
+            id="have"
           />
         </div>
         <div className={styles.itemsViev}>{transportItemsSearchByCityViev}</div>

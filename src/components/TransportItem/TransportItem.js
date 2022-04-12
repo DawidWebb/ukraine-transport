@@ -29,8 +29,8 @@ const TransportItem = ({ item, buttons, kindOfItem }) => {
 
   const handleOnDeleteItem = (e) => {
     const elementToDel = {
-      nameElementToDel: "transport",
       idElementToDel: e.target.id,
+      kindOfItem: kindOfItem,
     };
     setElementToDel(elementToDel);
     setIsDeleteConfirmationModalOpen(true);
@@ -155,6 +155,7 @@ const TransportItem = ({ item, buttons, kindOfItem }) => {
         setIsEditModalOpen={setIsEditModalOpen}
         item={item}
         id={item._id}
+        kindOfItem={kindOfItem}
       />
       <DeleteConfirmation
         isDeleteConfirmationModalOpen={isDeleteConfirmationModalOpen}

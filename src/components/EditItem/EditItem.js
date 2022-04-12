@@ -1,6 +1,6 @@
 import { Form, Field } from "react-final-form";
 import { useDispatch, useSelector } from "react-redux";
-import { editTransport } from "../../data/actions";
+import { editTransport, editNeeds } from "../../data/actions";
 import { Button, Modal } from "../../components";
 import {
   GENERAL_REQUIRED_INFO,
@@ -13,7 +13,13 @@ import {
 } from "../../assets/languages";
 import styles from "./editItem.module.scss";
 
-const EditItem = ({ id, item, isEditModalOpen, setIsEditModalOpen }) => {
+const EditItem = ({
+  id,
+  item,
+  isEditModalOpen,
+  setIsEditModalOpen,
+  kindOfItem,
+}) => {
   const language = useSelector((store) => store.language);
   const localStorage = useSelector(
     (store) => store.localStorage[0].storageData
@@ -50,8 +56,12 @@ const EditItem = ({ id, item, isEditModalOpen, setIsEditModalOpen }) => {
       contact: values.contact,
       kindOfTransport: values.kindOfTransport,
     };
+    if (kindOfItem === "have") {
+      dispatch(editTransport(transportData));
+    } else if (kindOfItem === "need") {
+      dispatch(editNeeds(transportData));
+    }
 
-    dispatch(editTransport(transportData));
     setIsEditModalOpen(false);
   };
 

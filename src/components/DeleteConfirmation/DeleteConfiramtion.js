@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Modal } from "..";
 import { useDispatch, useSelector } from "react-redux";
-import { delTransport } from "../../data/actions";
+import { delTransport, delNeeds } from "../../data/actions";
 import {
   GENERAL_DELETE_CONFORMATION_LG,
   GENERAL_BTN_EXIT,
@@ -34,9 +34,12 @@ const DeleteConfirmation = ({
   };
 
   const handleDeleteSelectedElement = () => {
-    if (elementToDel.nameElementToDel === "transport") {
+    if (elementToDel.kindOfItem === "have") {
       dispatch(delTransport(elementToDel.idElementToDel));
+    } else if (elementToDel.kindOfItem === "need") {
+      dispatch(delNeeds(elementToDel.idElementToDel));
     }
+
     setIsDeleteConfirmationModalOpen(false);
   };
 

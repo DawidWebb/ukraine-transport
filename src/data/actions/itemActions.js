@@ -69,7 +69,22 @@ export const editTransport = (transportData) => async (dispatch) => {
   if (status === 202) {
     dispatch(removeSpinner());
     dispatch({
-      type: EDIT_TRANSPORT,
+      type: EDIT_NEEDS,
+      payload: data.data,
+    });
+  } else {
+    dispatch(removeSpinner());
+    dispatch(timeoutShowTask(data.message));
+  }
+};
+
+export const editNeeds = (transportData) => async (dispatch) => {
+  dispatch(addSpinner());
+  const { data, status } = await request.put("need-transport", transportData);
+  if (status === 202) {
+    dispatch(removeSpinner());
+    dispatch({
+      type: EDIT_NEEDS,
       payload: data.data,
     });
   } else {
@@ -85,6 +100,21 @@ export const delTransport = (id) => async (dispatch) => {
     dispatch(removeSpinner());
     dispatch({
       type: DEL_TRANSPORT,
+      payload: id,
+    });
+  } else {
+    dispatch(removeSpinner());
+    dispatch(timeoutShowTask(data.message));
+  }
+};
+
+export const delNeeds = (id) => async (dispatch) => {
+  dispatch(addSpinner());
+  const { data, status } = await request.delete(`need-transport/${id}`);
+  if (status === 200) {
+    dispatch(removeSpinner());
+    dispatch({
+      type: DEL_NEEDS,
       payload: id,
     });
   } else {
