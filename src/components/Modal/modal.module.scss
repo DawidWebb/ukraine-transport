@@ -19,9 +19,9 @@
     padding: 20px;
     z-index: 20;
     border: none;
-    // background-color: $white;
-    // border-radius: $radius;
-    // border: 1px solid $background;
+    background-color: $firstColor;
+    border-radius: $radius;
+
 
     @media screen and (orientation: landscape) {
       padding: 30px;

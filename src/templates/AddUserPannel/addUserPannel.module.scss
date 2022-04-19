@@ -1,1 +1,80 @@
 @import "../../StylesRoot/common.scss";
+
+.wrapper {
+    width: 100%;
+
+    h2 {
+        display: inline-block;
+        width: 300px;
+        color: $firstColor;
+        margin: 30px auto 0 auto;
+        text-align: center;
+    }
+
+    .inside {
+        width: 80%;
+        margin: 30px auto 0 auto;
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+            background-color: $firstColor;
+            border-radius: 20px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+
+            .element {
+
+                div {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 20px;
+
+                    p {
+                        color: $darkenSecondColor;
+                    }
+
+                    input {
+                        @include standardInput;
+                    }
+
+                    span {
+                        color: $worrningColor;
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            .buttons {
+                width: 90%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                button {
+                    @include formButton;
+                }
+            }
+        }
+
+        .info {
+            margin-top: 20px;
+            color: $worrningColor;
+            font-weight: 700;
+            text-align: center;
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, small)) {
+        .inside {
+
+
+            .form {
+                width: 500px;
+            }
+        }
+    }
+}

@@ -13,6 +13,7 @@
     color: $textFirstColor;
     font-size: $xs-fz;
     cursor: pointer;
+    transition: $transition;
 
     &:hover {
         background-color: $darkenFirstColor;
@@ -29,7 +30,36 @@
     }
 }
 
-@mixin formButton {}
+@mixin formButton {
+    width: 90px;
+    height: 25px;
+    border-radius: 25px;
+    border: none;
+    background-color: $secondColor;
+    color: $darkenFirstColor;
+    font-size: $xs-fz;
+    font-weight: 700;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+        background-color: $darkenSecondColor;
+        color: $textFirstColor;
+    }
+}
+
+@mixin standardInput {
+    background-color: transparent;
+    border: none;
+    height: 25px;
+    font-size: $s-fz;
+    color: $textFirstColor;
+    border-bottom: 2px solid $secondColor;
+
+    @media screen and (min-width:map-get($breakpoints, medium)) {
+        font-size: $xl-fz;
+    }
+}
 
 @mixin linkButton {
     font-weight: 700;
@@ -49,8 +79,7 @@
         font-size: $s-fz;
     }
 
-    @media screen and (min-width:map-get($breakpoints, x-large)) {
-
+    @media screen and (min-width:map-get($breakpoints, large)) {
         font-size: $xl-fz;
     }
 }

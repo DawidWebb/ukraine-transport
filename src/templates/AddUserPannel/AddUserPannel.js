@@ -50,6 +50,7 @@ const AddUserPannel = () => {
       dateofAdd: new Date(),
     };
     dispatch(addUser(userData));
+    navigate("/");
   };
   const required = (value) =>
     value
@@ -81,6 +82,15 @@ const AddUserPannel = () => {
                 <Field name="name" validate={required}>
                   {({ input, meta }) => (
                     <div>
+                      {values.name ? (
+                        <p>
+                          {language[0] === "PL"
+                            ? ADD_USER_NAME_LG.pl
+                            : ADD_USER_NAME_LG.ua}
+                        </p>
+                      ) : (
+                        <p> </p>
+                      )}
                       <input
                         type="text"
                         {...input}
@@ -91,15 +101,6 @@ const AddUserPannel = () => {
                         }
                       />
                       {meta.error && meta.touched && <span>{meta.error}</span>}
-                      <p
-                        style={{
-                          display: `${values.login ? "block" : "none"}`,
-                        }}
-                      >
-                        {language[0] === "PL"
-                          ? ADD_USER_NAME_LG.pl
-                          : ADD_USER_NAME_LG.ua}
-                      </p>
                     </div>
                   )}
                 </Field>
@@ -108,6 +109,15 @@ const AddUserPannel = () => {
                 <Field name="login" validate={required}>
                   {({ input, meta }) => (
                     <div>
+                      {values.login ? (
+                        <p>
+                          {language[0] === "PL"
+                            ? ADD_USER_MAIL_LG.pl
+                            : ADD_USER_MAIL_LG.ua}
+                        </p>
+                      ) : (
+                        <p></p>
+                      )}
                       <input
                         type="text"
                         {...input}
@@ -118,15 +128,6 @@ const AddUserPannel = () => {
                         }
                       />
                       {meta.error && meta.touched && <span>{meta.error}</span>}
-                      <p
-                        style={{
-                          display: `${values.login ? "block" : "none"}`,
-                        }}
-                      >
-                        {language[0] === "PL"
-                          ? ADD_USER_MAIL_LG.pl
-                          : ADD_USER_MAIL_LG.ua}
-                      </p>
                     </div>
                   )}
                 </Field>
@@ -136,6 +137,15 @@ const AddUserPannel = () => {
                 <Field name="password" validate={required}>
                   {({ input, meta }) => (
                     <div>
+                      {values.password ? (
+                        <p>
+                          {language[0] === "PL"
+                            ? ADD_USER_PASS_LG.pl
+                            : ADD_USER_PASS_LG.ua}
+                        </p>
+                      ) : (
+                        <p> </p>
+                      )}
                       <input
                         type="password"
                         {...input}
@@ -146,15 +156,6 @@ const AddUserPannel = () => {
                         }
                       />
                       {meta.error && meta.touched && <span>{meta.error}</span>}
-                      <p
-                        style={{
-                          display: `${values.password ? "block" : "none"}`,
-                        }}
-                      >
-                        {language[0] === "PL"
-                          ? ADD_USER_PASS_LG.pl
-                          : ADD_USER_PASS_LG.ua}
-                      </p>
                     </div>
                   )}
                 </Field>
@@ -163,6 +164,15 @@ const AddUserPannel = () => {
                 <Field name="repassword" validate={required}>
                   {({ input, meta }) => (
                     <div>
+                      {values.repassword ? (
+                        <p>
+                          {language[0] === "PL"
+                            ? ADD_USER_RE_PASS_LG.pl
+                            : ADD_USER_RE_PASS_LG.ua}
+                        </p>
+                      ) : (
+                        <p></p>
+                      )}
                       <input
                         type="password"
                         {...input}
@@ -173,15 +183,6 @@ const AddUserPannel = () => {
                         }
                       />
                       {meta.error && meta.touched && <span>{meta.error}</span>}
-                      <p
-                        style={{
-                          display: `${values.password ? "block" : "none"}`,
-                        }}
-                      >
-                        {language[0] === "PL"
-                          ? ADD_USER_RE_PASS_LG.pl
-                          : ADD_USER_RE_PASS_LG.ua}
-                      </p>
                     </div>
                   )}
                 </Field>

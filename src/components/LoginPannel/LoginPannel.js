@@ -72,15 +72,9 @@ const LoginPannel = ({ isLoginPannelOpen, setIsLoginPannelOpen }) => {
                 <Field name="login" validate={required}>
                   {({ input, meta }) => (
                     <div>
+                      {values.login ? <p>Login</p> : <p></p>}
                       <input type="text" {...input} placeholder="Login" />
                       {meta.error && meta.touched && <span>{meta.error}</span>}
-                      <p
-                        style={{
-                          display: `${values.login ? "block" : "none"}`,
-                        }}
-                      >
-                        Login
-                      </p>
                     </div>
                   )}
                 </Field>
@@ -90,15 +84,9 @@ const LoginPannel = ({ isLoginPannelOpen, setIsLoginPannelOpen }) => {
                 <Field name="password" validate={required}>
                   {({ input, meta }) => (
                     <div>
+                      {values.password ? <p>Hasło</p> : <p></p>}
                       <input type="password" {...input} placeholder="Hasło" />
                       {meta.error && meta.touched && <span>{meta.error}</span>}
-                      <p
-                        style={{
-                          display: `${values.password ? "block" : "none"}`,
-                        }}
-                      >
-                        Hasło
-                      </p>
                     </div>
                   )}
                 </Field>
