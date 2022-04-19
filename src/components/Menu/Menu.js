@@ -34,7 +34,7 @@ const Menu = () => {
   };
 
   const handleOnClickButton = (e) => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen(false);
     if (e.target.id === "start") {
       navigate("/");
     } else if (e.target.id === "haveTransport") {
@@ -82,6 +82,9 @@ const Menu = () => {
         </div>
         <div className={styles.burger} onClick={handeOpenCloseMenu}>
           <svg
+            style={{
+              transform: `${!isMenuOpen ? "none" : "rotate(180deg)"}`,
+            }}
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
             viewBox="0 0 24 24"

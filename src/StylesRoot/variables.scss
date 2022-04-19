@@ -2,11 +2,21 @@
 
 $roboto: 'Roboto mono';
 
-$translate: 0.3s;
+$transition: 0.3s;
+
+$firstColor: rgb(97, 72, 97);
+$darkenFirstColor: darken($firstColor, 10%);
+$secondColor: rgb(173, 173, 31);
+$textFirstColor: rgb(255, 255, 255);
+$doneColor: rgb(2, 152, 2);
+
+$xs-fz: 13px;
+$s-fz: 15px;
+$xl-fz: 16px;
 
 $breakpoints: (x-small: 480px,
     small: 640px,
     medium: 800px,
-    large: 1040px,
+    large: 1020px,
     x-large: 1280px,
 );

@@ -27,7 +27,9 @@ const Header = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.inside}>
-        <div className={styles.logoName}></div>
+        <div className={styles.logoName}>
+          <p>#TransForUkraine</p>
+        </div>
 
         <div
           className={styles.language}
@@ -40,6 +42,10 @@ const Header = () => {
             }`,
           }}
         ></div>
+
+        <div className={styles.menu}>
+          <Menu />
+        </div>
         <div className={styles.userInfo}>
           {!localStorage ? (
             ""
@@ -49,9 +55,6 @@ const Header = () => {
               {language[0] === "PL" ? "zalogowany" : "Зареєстровано"}
             </p>
           )}
-        </div>
-        <div className={styles.menu}>
-          <Menu />
         </div>
       </div>
     </div>
