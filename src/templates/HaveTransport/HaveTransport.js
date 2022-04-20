@@ -101,66 +101,73 @@ const HaveTransport = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.inside}>
-        <div className={styles.info}>
-          <h2>{language[0] === "PL" ? TITLE_LG[0].pl : TITLE_LG[0].ua}</h2>
-          <p
+        <div className={styles.transportMenu}>
+          <div className={styles.info}>
+            <h3>{language[0] === "PL" ? TITLE_LG[0].pl : TITLE_LG[0].ua}</h3>
+            <p
+              style={{
+                display: `${!cookie && !localStorage ? "block" : "none"}`,
+              }}
+            >
+              {language[0] === "PL" ? INFO_LG[0].pl : INFO_LG[0].ua}
+            </p>
+          </div>
+          <div className={styles.forms}>
+            <form>
+              <input
+                type="text"
+                placeholder={language[0] === "PL" ? SEARCH_LG.pl : SEARCH_LG.ua}
+                onChange={handleChangeCity}
+              />
+            </form>
+            <form>
+              <select
+                name="transportKind"
+                id="transportKind"
+                onChange={handleChangeTransport}
+              >
+                <option value="all">
+                  {" "}
+                  {language[0] === "PL"
+                    ? KIND_TRANSPORT_LG[2].pl
+                    : KIND_TRANSPORT_LG[2].ua}
+                </option>
+                <option value="heavy">
+                  {" "}
+                  {language[0] === "PL"
+                    ? KIND_TRANSPORT_LG[0].pl
+                    : KIND_TRANSPORT_LG[0].ua}
+                </option>
+                <option value="pepole">
+                  {" "}
+                  {language[0] === "PL"
+                    ? KIND_TRANSPORT_LG[1].pl
+                    : KIND_TRANSPORT_LG[1].ua}
+                </option>
+              </select>
+            </form>
+          </div>
+
+          <div
+            className={styles.operation}
             style={{
-              display: `${!cookie && !localStorage ? "block" : "none"}`,
+              display: `${!cookie && !localStorage ? "none" : "flex"}`,
             }}
           >
-            {language[0] === "PL" ? INFO_LG[0].pl : INFO_LG[0].ua}
-          </p>
-          <form>
-            <input
-              type="text"
-              placeholder={language[0] === "PL" ? SEARCH_LG.pl : SEARCH_LG.ua}
-              onChange={handleChangeCity}
+            <Button
+              type="button"
+              name={language[0] === "PL" ? ADD_BTN_LG[0].pl : ADD_BTN_LG[0].ua}
+              onClick={handleAddVechicle}
             />
-          </form>
-          <form>
-            <select
-              name="transportKind"
-              id="transportKind"
-              onChange={handleChangeTransport}
-            >
-              <option value="all">
-                {" "}
-                {language[0] === "PL"
-                  ? KIND_TRANSPORT_LG[2].pl
-                  : KIND_TRANSPORT_LG[2].ua}
-              </option>
-              <option value="heavy">
-                {" "}
-                {language[0] === "PL"
-                  ? KIND_TRANSPORT_LG[0].pl
-                  : KIND_TRANSPORT_LG[0].ua}
-              </option>
-              <option value="pepole">
-                {" "}
-                {language[0] === "PL"
-                  ? KIND_TRANSPORT_LG[1].pl
-                  : KIND_TRANSPORT_LG[1].ua}
-              </option>
-            </select>
-          </form>
-        </div>
-        <div
-          className={styles.operation}
-          style={{
-            display: `${!cookie && !localStorage ? "none" : "flex"}`,
-          }}
-        >
-          <Button
-            type="button"
-            name={language[0] === "PL" ? ADD_BTN_LG[0].pl : ADD_BTN_LG[0].ua}
-            onClick={handleAddVechicle}
-          />
-          <Button
-            type="button"
-            name={language[0] === "PL" ? SHOW_BTN_LG[0].pl : SHOW_BTN_LG[0].ua}
-            onClick={handleShowMyVechicle}
-            id="have"
-          />
+            <Button
+              type="button"
+              name={
+                language[0] === "PL" ? SHOW_BTN_LG[0].pl : SHOW_BTN_LG[0].ua
+              }
+              onClick={handleShowMyVechicle}
+              id="have"
+            />
+          </div>
         </div>
         <div className={styles.itemsViev}>{transportItemsSearchByCityViev}</div>
       </div>

@@ -60,6 +60,7 @@
             color: $textFirstColor;
             margin-bottom: 10px;
             transition: $transition;
+            text-decoration: none;
 
             &:hover {
                 color: $secondColor;
@@ -69,12 +70,6 @@
 
     @media screen and (min-width:map-get($breakpoints, x-large)) {
         font-size: $xl-fz;
-
-        .operations {
-            a {
-                text-decoration: none;
-            }
-        }
     }
 
 }

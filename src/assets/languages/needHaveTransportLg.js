@@ -44,13 +44,13 @@ export const ADD_BTN_LG = [
 export const SHOW_BTN_LG = [
   {
     id: "showBtnHave",
-    pl: "pokaż moje pojazdy",
-    ua: "покажи мої транспортні засоби",
+    pl: "moje pojazdy",
+    ua: "мій автомобіль",
   },
   {
     id: "showBtnNeed",
-    pl: "pokaż moje zapytania",
-    ua: "покажи мої запити",
+    pl: "moje zapytania",
+    ua: "мої запити",
   },
 ];
 export const KIND_TRANSPORT_LG = [

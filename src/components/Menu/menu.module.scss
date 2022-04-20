@@ -1,6 +1,8 @@
 @import "../../StylesRoot/common.scss";
 
 .wrapper {
+
+
     .inside {
         display: flex;
         align-items: center;
@@ -30,31 +32,52 @@
         .menuMobile {
             position: fixed;
             width: 100%;
+            min-height: 120px;
             padding-left: 50px;
-            border-bottom: 2px solid $firstColor;
-            top: 80px;
+            top: 85px;
             left: 50%;
             background-color: $textFirstColor;
             transform: translateX(-50%);
             transition: $transition;
             z-index: 50;
 
-            div {
-                button {
-                    @include linkButton;
-                    margin-bottom: 20px;
-                }
-            }
+            ul {
+                div {
+                    button {
+                        @include linkButton;
+                        margin-bottom: 20px;
 
-            div:nth-last-child(1) {
-                button {
-                    @include standardButton;
+
+                    }
+                }
+
+                div:nth-last-child(1) {
+                    button {
+                        @include standardButton;
+                    }
                 }
             }
         }
 
         .menuDesktop {
             display: none;
+        }
+    }
+
+    @media screen and (orientation: landscape) {
+        .inside {
+            .menuMobile {
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    align-items: center;
+
+                    div {
+                        flex-basis: 30%;
+                    }
+                }
+            }
         }
     }
 
@@ -90,6 +113,10 @@
                         button {
                             @include linkButton;
                             margin-bottom: 20px;
+
+                            &:hover {
+                                border-bottom: 2px solid $thirdColor;
+                            }
                         }
                     }
 

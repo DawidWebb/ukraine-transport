@@ -1,1 +1,19 @@
 @import "../../StylesRoot/common.scss";
+
+.wrapper {
+    border: 1px solid red;
+
+    .inside {
+        h3 {}
+
+        .routes {}
+
+        .dates {}
+
+        .additional {}
+
+        .describe {}
+
+        .buttons {}
+    }
+}

@@ -122,7 +122,7 @@ const TransportItem = ({ item, buttons, kindOfItem }) => {
             {quanity}: <span>{item.quanity}</span>
           </p>
         </div>
-        <div className={styles.descrive}>
+        <div className={styles.describe}>
           <p>{item.describe}</p>
           <p>{offerContact}</p>
         </div>
