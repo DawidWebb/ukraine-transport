@@ -54,7 +54,7 @@ export const SHOW_BTN_LG = [
   },
 ];
 export const KIND_TRANSPORT_LG = [
-  { id: "heavy", pl: "towarowy", ua: "торгова марка" },
+  { id: "heavy", pl: "towarowy", ua: "торгова" },
   { id: "people", pl: "osobowy", ua: "особистий" },
   { id: "all", pl: "wszystko", ua: "всі" },
 ];
@@ -77,20 +77,20 @@ export const CITIES_TRANSPORT_LG = [
   {
     id: "delCity",
     pl: "miasto dostawy",
-    ua: " miasto dostawy",
+    ua: "місто доставки",
   },
 ];
 
 export const PARAMS_TARNSPORT_LG = [
   {
     id: "kindOfTruck",
-    pl: "rodzaj pojazdu",
-    ua: "Тип транспортного засобу",
+    pl: "pojazd",
+    ua: "автомобіль",
   },
   {
     id: "weight",
-    pl: "waga towaru",
-    ua: "вага товару",
+    pl: "waga towaru KG",
+    ua: "вага товару KG",
   },
   {
     id: "package",

@@ -101,23 +101,28 @@
                     display: flex;
                     justify-content: space-around;
                     align-items: center;
-
+                    margin-bottom: 20px;
 
                     div {
                         display: flex;
                         justify-content: center;
                         align-items: center;
                         margin-top: 14px;
+                        padding-right: 10px;
 
 
                         button {
                             @include linkButton;
-                            margin-bottom: 20px;
+
 
                             &:hover {
                                 border-bottom: 2px solid $thirdColor;
                             }
                         }
+                    }
+
+                    div:nth-last-child(2) {
+                        border: none;
                     }
 
                     div:nth-last-child(1) {

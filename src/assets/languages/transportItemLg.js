@@ -16,8 +16,8 @@ export const HEAVY_TRANSPORT_LG = [
   },
   {
     id: "weight",
-    pl: "ładowność",
-    ua: "потужність",
+    pl: "ładowność KG",
+    ua: "потужність KG",
   },
   {
     id: "package",

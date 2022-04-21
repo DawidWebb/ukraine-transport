@@ -65,6 +65,9 @@ const Menu = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.inside}>
+        <div className={styles.menuDesktop}>
+          <ul>{menuList}</ul>
+        </div>
         <div className={styles.login}>
           <Button
             name={
@@ -99,9 +102,6 @@ const Menu = () => {
           className={styles.menuMobile}
           style={{ display: `${isMenuOpen ? "flex" : "none"}` }}
         >
-          <ul>{menuList}</ul>
-        </div>
-        <div className={styles.menuDesktop}>
           <ul>{menuList}</ul>
         </div>
       </div>

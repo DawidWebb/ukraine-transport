@@ -52,11 +52,12 @@
     @media screen and (min-width:map-get($breakpoints, large)) {
         .inside {
             .logoName {
-                flex-basis: 20%;
+                flex-basis: 10%;
+                border: 1px solid red;
             }
 
             .menu {
-                flex-basis: 70%;
+                flex-basis: 78%;
             }
 
 

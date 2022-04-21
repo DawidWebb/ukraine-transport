@@ -6,13 +6,13 @@ export const MENU_LANG = [
   },
   {
     id: "haveTransport",
-    pl: "dam transport",
+    pl: "mam transport",
     ua: "Дам транспорт",
   },
   {
     id: "needTransport",
-    pl: "potrzebny transport",
-    ua: "потрібен транспорт",
+    pl: "szukam transportu",
+    ua: "Шукаю транспорт",
   },
 
   {

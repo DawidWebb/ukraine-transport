@@ -83,25 +83,27 @@ const AddItem = ({
                   <div>1</div>
                 </div>
                 <div className={styles.element}>
-                  <label>
-                    <Field
-                      name="kindOfTransport"
-                      component="input"
-                      type="radio"
-                      value="pepole"
-                      validate={required}
-                    />{" "}
+                  <Field
+                    name="kindOfTransport"
+                    component="input"
+                    type="radio"
+                    value="pepole"
+                    id="pepole"
+                    validate={required}
+                  />{" "}
+                  <label htmlFor="pepole">
                     {language[0] === "PL"
                       ? KIND_TRANSPORT_LG[1].pl
                       : KIND_TRANSPORT_LG[1].ua}
                   </label>
-                  <label>
-                    <Field
-                      name="kindOfTransport"
-                      component="input"
-                      type="radio"
-                      value="heavy"
-                    />{" "}
+                  <Field
+                    name="kindOfTransport"
+                    component="input"
+                    type="radio"
+                    value="heavy"
+                    id="heavy"
+                  />{" "}
+                  <label htmlFor="heavy">
                     {language[0] === "PL"
                       ? KIND_TRANSPORT_LG[0].pl
                       : KIND_TRANSPORT_LG[0].ua}
@@ -115,7 +117,7 @@ const AddItem = ({
                 <div
                   className={styles.element}
                   style={{
-                    display: `${!values.kindOfTransport ? "none" : "block"}`,
+                    display: `${!values.kindOfTransport ? "none" : "flex"}`,
                   }}
                 >
                   <label>
@@ -128,6 +130,11 @@ const AddItem = ({
                       type="date"
                       value="startDate"
                       validate={required}
+                      style={{
+                        backgroundColor: `${
+                          values.startDate ? "rgb(222, 222, 24)" : "transparent"
+                        }`,
+                      }}
                     />{" "}
                   </label>
                   <label>
@@ -140,6 +147,11 @@ const AddItem = ({
                       type="date"
                       value="endDate"
                       validate={required}
+                      style={{
+                        backgroundColor: `${
+                          values.endDate ? "rgb(222, 222, 24)" : "transparent"
+                        }`,
+                      }}
                     />{" "}
                   </label>
                 </div>
@@ -152,7 +164,7 @@ const AddItem = ({
                 <div
                   className={styles.element}
                   style={{
-                    display: `${!values.endDate ? "none" : "block"}`,
+                    display: `${!values.endDate ? "none" : "flex"}`,
                   }}
                 >
                   <label>
@@ -165,6 +177,11 @@ const AddItem = ({
                       type="text"
                       value="loadCity"
                       validate={required}
+                      style={{
+                        backgroundColor: `${
+                          values.loadCity ? "rgb(222, 222, 24)" : "transparent"
+                        }`,
+                      }}
                     />{" "}
                   </label>
                   <label>
@@ -177,6 +194,11 @@ const AddItem = ({
                       type="text"
                       value="delCity"
                       validate={required}
+                      style={{
+                        backgroundColor: `${
+                          values.delCity ? "rgb(222, 222, 24)" : "transparent"
+                        }`,
+                      }}
                     />{" "}
                   </label>
                 </div>
@@ -191,7 +213,7 @@ const AddItem = ({
                     display: `${
                       !values.delCity || values.kindOfTransport === "pepole"
                         ? "none"
-                        : "block"
+                        : "flex"
                     }`,
                   }}
                 >
@@ -204,6 +226,13 @@ const AddItem = ({
                       component="input"
                       type="text"
                       value="kindOfTruck"
+                      style={{
+                        backgroundColor: `${
+                          values.kindOfTruck
+                            ? "rgb(222, 222, 24)"
+                            : "transparent"
+                        }`,
+                      }}
                     />{" "}
                   </label>
                   <label>
@@ -215,6 +244,13 @@ const AddItem = ({
                       component="input"
                       type="number"
                       value="weight"
+                      min="100"
+                      max="24000"
+                      style={{
+                        backgroundColor: `${
+                          values.weight ? "rgb(222, 222, 24)" : "transparent"
+                        }`,
+                      }}
                     />{" "}
                   </label>
                   <label>
@@ -226,6 +262,11 @@ const AddItem = ({
                       component="input"
                       type="text"
                       value="package"
+                      style={{
+                        backgroundColor: `${
+                          values.package ? "rgb(222, 222, 24)" : "transparent"
+                        }`,
+                      }}
                     />{" "}
                   </label>
                 </div>
@@ -237,7 +278,7 @@ const AddItem = ({
                 <div
                   className={styles.element}
                   style={{
-                    display: `${!values.delCity ? "none" : "block"}`,
+                    display: `${!values.delCity ? "none" : "flex"}`,
                   }}
                 >
                   <label>
@@ -250,6 +291,11 @@ const AddItem = ({
                       type="number"
                       value="quanity"
                       validate={required}
+                      style={{
+                        backgroundColor: `${
+                          values.quanity ? "rgb(222, 222, 24)" : "transparent"
+                        }`,
+                      }}
                     />{" "}
                   </label>
                   <label>
@@ -264,6 +310,11 @@ const AddItem = ({
                       rows="5"
                       maxLength="300"
                       value="describe"
+                      style={{
+                        backgroundColor: `${
+                          values.describe ? "rgb(222, 222, 24)" : "transparent"
+                        }`,
+                      }}
                     />{" "}
                   </label>
                   <label>
@@ -279,6 +330,11 @@ const AddItem = ({
                       maxLength="100"
                       value="contact"
                       validate={required}
+                      style={{
+                        backgroundColor: `${
+                          values.contact ? "rgb(222, 222, 24)" : "transparent"
+                        }`,
+                      }}
                     />{" "}
                   </label>
                 </div>

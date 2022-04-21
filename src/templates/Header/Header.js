@@ -31,6 +31,9 @@ const Header = () => {
           <p>#TransForUkraine</p>
         </div>
 
+        <div className={styles.menu}>
+          <Menu />
+        </div>
         <div
           className={styles.language}
           onClick={handleOnChangeLanguage}
@@ -42,10 +45,6 @@ const Header = () => {
             }`,
           }}
         ></div>
-
-        <div className={styles.menu}>
-          <Menu />
-        </div>
         <div className={styles.userInfo}>
           {!localStorage ? (
             ""
