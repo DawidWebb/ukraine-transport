@@ -115,7 +115,7 @@ const MyItems = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.inside}>
-        <h2>{title}</h2>
+        <h3>{title}</h3>
         <div className={styles.operation}>{operationButtons}</div>
         <div className={styles.itemsViev}>{selectedViev}</div>
       </div>

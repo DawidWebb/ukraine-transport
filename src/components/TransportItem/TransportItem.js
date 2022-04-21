@@ -17,11 +17,16 @@ const TransportItem = ({ item, buttons, kindOfItem }) => {
 
   const dispatch = useDispatch();
 
+  const [isSelectedViev, setIsSelectedViev] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [elementToDel, setElementToDel] = useState(false);
 
   const [isDeleteConfirmationModalOpen, setIsDeleteConfirmationModalOpen] =
     useState(false);
+
+  const handleOpenSelectedViev = () => {
+    setIsSelectedViev(!isSelectedViev);
+  };
 
   const handleOnOpenEditModule = () => {
     setIsEditModalOpen(true);
@@ -95,36 +100,44 @@ const TransportItem = ({ item, buttons, kindOfItem }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.inside}>
-        <h3>
-          {selectedTitle}: {item.kindOfTruck}
-        </h3>
-        <div className={styles.routes}>
-          <p>{routes}:</p>
-          <p>
-            {item.loadCity} - {item.delCity}
-          </p>
+        <div className={styles.onClickViev} onClick={handleOpenSelectedViev}>
+          <h3>
+            {selectedTitle}: {item.kindOfTruck}
+          </h3>
+          <div className={styles.routes}>
+            <p>{routes}:</p>
+            <p>
+              {item.loadCity} - {item.delCity}
+            </p>
+          </div>
+          <div className={styles.dates}>
+            <p>{dates}:</p>
+            <p>
+              {new Date(item.startDate).toLocaleDateString()} -{" "}
+              {new Date(item.endDate).toLocaleDateString()}
+            </p>
+          </div>
         </div>
-        <div className={styles.dates}>
-          {dates}:
-          <p>
-            {new Date(item.startDate).toLocaleDateString()} -{" "}
-            {new Date(item.endDate).toLocaleDateString()}
-          </p>
-        </div>
-        <div className={styles.additional}>
-          <p>
-            {weight} <span>{item.weight}</span>
-          </p>
-          <p>
-            {packages} <span>{item.package}</span>
-          </p>
-          <p>
-            {quanity}: <span>{item.quanity}</span>
-          </p>
-        </div>
-        <div className={styles.describe}>
-          <p>{item.describe}</p>
-          <p>{offerContact}</p>
+        <div
+          className={styles.selectedViev}
+          style={{ display: `${isSelectedViev ? "flex" : "none"}` }}
+          onClick={handleOpenSelectedViev}
+        >
+          <div className={styles.additional}>
+            <p>
+              {weight} <span>{item.weight}</span>
+            </p>
+            <p>
+              {packages} <span>{item.package}</span>
+            </p>
+            <p>
+              {quanity}: <span>{item.quanity}</span>
+            </p>
+          </div>
+          <div className={styles.describe}>
+            <p>{item.describe}</p>
+            <p>{offerContact}</p>
+          </div>
         </div>
         {!buttons ? (
           ""

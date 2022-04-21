@@ -1,1 +1,85 @@
 @import "../../StylesRoot/common.scss";
+
+.wrapper {
+    width: 100%;
+    margin-top: 80px;
+
+    .inside {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 40px auto;
+
+        h3 {
+            flex-basis: 80%;
+            margin: 0 auto 30px auto;
+            color: $firstColor;
+
+        }
+    }
+
+    .operation {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 30px;
+
+        button {
+            @include standardButton;
+            width: 160px;
+
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, medium)) {
+        .inside {
+            .operation {
+
+
+                button {
+
+                    width: 240px;
+
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, large)) {
+        .inside {
+            .operation {
+
+
+                button {
+
+                    width: 240px;
+
+                }
+            }
+        }
+
+        .itemsViev {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+
+            div {
+                flex-basis: 49.9%;
+            }
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, x-large)) {
+        .inside {
+            .operation {
+
+                button {
+
+                    width: 280px;
+
+                }
+            }
+        }
+    }
+}

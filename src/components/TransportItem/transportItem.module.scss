@@ -1,19 +1,188 @@
 @import "../../StylesRoot/common.scss";
 
 .wrapper {
-    border: 1px solid red;
+    width: 95%;
+    margin: 0 auto;
+    background-color: $fourthColor;
+    border-top: 2px solid $textFirstColor;
+    border-radius: 3px;
+    color: $firstColor;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+        color: $darkenFirstColor;
+        background-color: $darkenFourthColor;
+    }
 
     .inside {
-        h3 {}
+        padding-top: 10px;
+        padding-bottom: 10px;
 
-        .routes {}
 
-        .dates {}
+        .onClickViev {
+            z-index: 10;
 
-        .additional {}
 
-        .describe {}
+            h3 {
+                text-align: center;
+                font-size: $xl-fz;
+            }
 
-        .buttons {}
+            .routes,
+            .dates {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                p {
+                    margin-right: 10px;
+                    font-size: $xs-fz;
+                }
+            }
+
+
+        }
+
+        .selectedViev {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+
+            .additional,
+            .describe {
+                flex-basis: 90%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 5px;
+                border-top: 1px solid $darkenSecondColor;
+                border-radius: 2px;
+                padding-top: 5px;
+
+                p {
+                    margin-right: 10px;
+                    font-size: $xs-fz;
+                    text-align: center;
+
+
+
+                    span {
+                        font-weight: 700;
+                    }
+
+                }
+            }
+
+
+
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 200px;
+            margin: 20px auto 10px auto;
+
+            button {
+                @include formButton;
+            }
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, large)) {
+        .inside {
+            .onClickViev {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+
+                h3 {
+                    flex-basis: 60%;
+                    font-size: $xl-fz*1.1;
+                }
+
+                .routes,
+                .dates {
+                    flex-basis: 40%;
+
+                    p {
+                        font-size: $xl-fz;
+                    }
+                }
+            }
+
+            .selectedViev {
+                margin-top: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-items: center;
+
+                .additional,
+                .describe {
+                    flex-basis: 45%;
+                    padding-top: 10px;
+
+                    p {
+
+                        font-size: $xl-fz;
+
+                    }
+                }
+
+
+
+            }
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, x-large)) {
+        .inside {
+            .onClickViev {
+
+
+                h3 {
+                    flex-basis: 45%;
+                    font-size: $xl-fz*1.1;
+                }
+
+                .routes,
+                .dates {
+                    flex-basis: 22%;
+
+                    p {
+                        font-size: $xl-fz;
+                    }
+                }
+            }
+
+            .selectedViev {
+                margin-top: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-items: center;
+
+                .additional,
+                .describe {
+                    flex-basis: 45%;
+                    padding-top: 10px;
+
+                    p {
+
+                        font-size: $xl-fz;
+
+                    }
+                }
+
+
+
+            }
+        }
     }
 }
