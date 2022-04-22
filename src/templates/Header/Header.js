@@ -6,9 +6,7 @@ import styles from "./header.module.scss";
 
 const Header = () => {
   const language = useSelector((store) => store.language);
-  const localStorage = useSelector(
-    (store) => store.localStorage[0].storageData
-  );
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -45,16 +43,6 @@ const Header = () => {
             }`,
           }}
         ></div>
-        <div className={styles.userInfo}>
-          {!localStorage ? (
-            ""
-          ) : (
-            <p>
-              {localStorage.name}{" "}
-              {language[0] === "PL" ? "zalogowany" : "Зареєстровано"}
-            </p>
-          )}
-        </div>
       </div>
     </div>
   );

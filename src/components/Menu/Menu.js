@@ -33,7 +33,7 @@ const Menu = () => {
     }
   };
 
-  const handleOnClickButton = (e) => {
+  const handleOnClickElement = (e) => {
     setIsMenuOpen(false);
     if (e.target.id === "start") {
       navigate("/");
@@ -50,15 +50,14 @@ const Menu = () => {
         key={item.id}
         style={{
           display: `${
-            item.id === "account" && !cookie && !localStorage ? "none" : "block"
+            item.id === "account" && !cookie && !localStorage ? "none" : "flex"
           }`,
         }}
+        id={item.id}
+        onClick={handleOnClickElement}
       >
-        <Button
-          name={language[0] === "PL" ? item.pl : item.ua}
-          id={item.id}
-          onClick={handleOnClickButton}
-        />
+        {item.svg}
+        <p id={item.id}>{language[0] === "PL" ? item.pl : item.ua}</p>
       </div>
     );
   });

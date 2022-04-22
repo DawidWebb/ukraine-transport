@@ -24,6 +24,7 @@
             cursor: pointer;
 
             svg {
+                fill: $thirdColor;
                 width: 35px;
                 height: 35px;
             }
@@ -34,28 +35,43 @@
             width: 100%;
             min-height: 120px;
             padding-left: 50px;
-            top: 85px;
+            top: 80px;
             left: 50%;
             background-color: $textFirstColor;
             transform: translateX(-50%);
             transition: $transition;
+            background-color: $firstColor;
             z-index: 50;
 
             ul {
                 div {
-                    button {
-                        @include linkButton;
-                        margin-bottom: 20px;
+                    display: flex;
+                    margin: 20px;
 
+                    svg {
+                        fill: $textFirstColor;
+                        cursor: pointer;
+                        transition: 0.4s;
+                    }
 
+                    p {
+                        margin-left: 10px;
+                        color: $textFirstColor;
+                        cursor: pointer;
+                        transition: 0.4s;
+                        font-weight: 700;
+                    }
+
+                    &:hover>p {
+                        color: $thirdColor;
+                    }
+
+                    &:hover>svg {
+                        fill: $thirdColor;
                     }
                 }
 
-                div:nth-last-child(1) {
-                    button {
-                        @include standardButton;
-                    }
-                }
+
             }
         }
 
@@ -101,23 +117,33 @@
                     display: flex;
                     justify-content: space-around;
                     align-items: center;
-                    margin-bottom: 20px;
+
 
                     div {
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        margin-top: 14px;
-                        padding-right: 10px;
 
+                        svg {
+                            fill: darken($firstColor, 15%);
+                            cursor: pointer;
+                            transition: 0.4s;
+                        }
 
-                        button {
-                            @include linkButton;
+                        p {
+                            color: darken($firstColor, 15%);
+                            font-weight: 700;
+                            margin-left: 2px;
+                            cursor: pointer;
+                            transition: 0.4s;
+                        }
 
+                        &:hover>p {
+                            color: $thirdColor;
+                        }
 
-                            &:hover {
-                                border-bottom: 2px solid $thirdColor;
-                            }
+                        &:hover>svg {
+                            fill: $thirdColor;
                         }
                     }
 
@@ -126,9 +152,12 @@
                     }
 
                     div:nth-last-child(1) {
-                        button {
+
+                        p,
+                        svg {
                             display: none;
                         }
+
                     }
                 }
             }

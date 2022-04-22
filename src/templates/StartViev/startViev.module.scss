@@ -1,1 +1,77 @@
 @import "../../StylesRoot/common.scss";
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+
+    .inside {
+        width: 100%;
+
+        .startPic {
+            width: 100%;
+            height: 60vh;
+            background-image: url("../../assets/images/macaw-7117439_640.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+
+            div {
+                position: relative;
+                width: 100%;
+                height: 100%;
+
+                background-color: rgba(94, 94, 94, 0.442);
+
+                h2 {
+                    position: absolute;
+                    top: 30%;
+                    left: 7%;
+                    color: $textFirstColor;
+
+                }
+
+                h3 {
+                    position: absolute;
+                    top: 70%;
+                    left: 20%;
+                    padding: 10px;
+
+                    color: $textFirstColor;
+
+                }
+            }
+
+        }
+
+        .startInfo {}
+    }
+
+    @media screen and (orientation: landscape) {
+        .inside {
+
+
+            .startPic {
+                height: 75vh;
+                background-position-y: -1%;
+            }
+
+            .startInfo {}
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, large)) {
+        .inside {
+
+
+            .startPic {
+
+                height: 70vh;
+                background-image: url("../../assets/images/macaw-7117439_1920.jpg");
+                background-position: center;
+            }
+
+            .startInfo {}
+        }
+    }
+
+}
