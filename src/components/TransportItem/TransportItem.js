@@ -9,7 +9,7 @@ import {
 import styles from "./transportItem.module.scss";
 
 const TransportItem = ({ item, buttons, kindOfItem }) => {
-  const language = useSelector((store) => store.language);
+  const sessionStorege = useSelector((store) => store.sessionStorege);
   const localStorage = useSelector(
     (store) => store.localStorage[0].storageData
   );
@@ -43,57 +43,61 @@ const TransportItem = ({ item, buttons, kindOfItem }) => {
 
   const titleHave =
     item.kindOfTransport === "heavy"
-      ? language[0] === "PL"
+      ? sessionStorege === "PL"
         ? HEAVY_TRANSPORT_LG[0].pl
         : HEAVY_TRANSPORT_LG[0].ua
-      : language[0] === "PL"
+      : sessionStorege === "PL"
       ? PEOPLE_TRANSPORT_LG[0].pl
       : PEOPLE_TRANSPORT_LG[0].ua;
 
   const titleNeed =
     item.kindOfTransport === "heavy"
-      ? language[0] === "PL"
+      ? sessionStorege === "PL"
         ? HEAVY_TRANSPORT_LG[6].pl
         : HEAVY_TRANSPORT_LG[6].ua
-      : language[0] === "PL"
+      : sessionStorege === "PL"
       ? PEOPLE_TRANSPORT_LG[3].pl
       : PEOPLE_TRANSPORT_LG[3].ua;
 
   const selectedTitle = kindOfItem === "have" ? titleHave : titleNeed;
 
   const routes =
-    language[0] === "PL" ? HEAVY_TRANSPORT_LG[1].pl : HEAVY_TRANSPORT_LG[1].ua;
+    sessionStorege === "PL"
+      ? HEAVY_TRANSPORT_LG[1].pl
+      : HEAVY_TRANSPORT_LG[1].ua;
 
   const dates =
-    language[0] === "PL" ? HEAVY_TRANSPORT_LG[2].pl : HEAVY_TRANSPORT_LG[2].ua;
+    sessionStorege === "PL"
+      ? HEAVY_TRANSPORT_LG[2].pl
+      : HEAVY_TRANSPORT_LG[2].ua;
 
   const weight =
     item.kindOfTransport === "heavy"
-      ? language[0] === "PL"
+      ? sessionStorege === "PL"
         ? HEAVY_TRANSPORT_LG[3].pl
         : HEAVY_TRANSPORT_LG[3].ua
       : "";
 
   const packages =
     item.kindOfTransport === "heavy"
-      ? language[0] === "PL"
+      ? sessionStorege === "PL"
         ? HEAVY_TRANSPORT_LG[4].pl
         : HEAVY_TRANSPORT_LG[4].ua
       : "";
 
   const quanity =
     item.kindOfTransport === "heavy"
-      ? language[0] === "PL"
+      ? sessionStorege === "PL"
         ? HEAVY_TRANSPORT_LG[5].pl
         : HEAVY_TRANSPORT_LG[5].ua
-      : language[0] === "PL"
+      : sessionStorege === "PL"
       ? PEOPLE_TRANSPORT_LG[1].pl
       : PEOPLE_TRANSPORT_LG[1].ua;
 
   const offerContact =
     !localStorage && !cookie
       ? ""
-      : language[0] === "PL"
+      : sessionStorege === "PL"
       ? `${PEOPLE_TRANSPORT_LG[2].pl}: ${item.contact}`
       : `${PEOPLE_TRANSPORT_LG[2].ua}: ${item.contact}`;
 
@@ -147,7 +151,7 @@ const TransportItem = ({ item, buttons, kindOfItem }) => {
               onClick={handleOnDeleteItem}
               id={item._id}
               name={
-                language[0] === "PL"
+                sessionStorege === "PL"
                   ? BUTTONS_TRANSPORT_LG[0].pl
                   : BUTTONS_TRANSPORT_LG[0].ua
               }
@@ -155,7 +159,7 @@ const TransportItem = ({ item, buttons, kindOfItem }) => {
             <Button
               onClick={handleOnOpenEditModule}
               name={
-                language[0] === "PL"
+                sessionStorege === "PL"
                   ? BUTTONS_TRANSPORT_LG[1].pl
                   : BUTTONS_TRANSPORT_LG[1].ua
               }

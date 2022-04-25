@@ -7,7 +7,7 @@ import { MENU_LANG, BTN_MENU_LNG } from "../../assets/languages";
 import styles from "./menu.module.scss";
 
 const Menu = () => {
-  const language = useSelector((store) => store.language);
+  const sessionStorege = useSelector((store) => store.sessionStorege);
   const cookie = useSelector((store) => store.cookie[0].isCookie);
   const localStorage = useSelector(
     (store) => store.localStorage[0].storageData
@@ -57,7 +57,7 @@ const Menu = () => {
         onClick={handleOnClickElement}
       >
         {item.svg}
-        <p id={item.id}>{language[0] === "PL" ? item.pl : item.ua}</p>
+        <p id={item.id}>{sessionStorege === "PL" ? item.pl : item.ua}</p>
       </div>
     );
   });
@@ -71,10 +71,10 @@ const Menu = () => {
           <Button
             name={
               !cookie && !localStorage
-                ? language[0] === "PL"
+                ? sessionStorege === "PL"
                   ? BTN_MENU_LNG.pl
                   : BTN_MENU_LNG.ua
-                : language[0] === "PL"
+                : sessionStorege === "PL"
                 ? BTN_MENU_LNG.pl1
                 : BTN_MENU_LNG.ua1
             }

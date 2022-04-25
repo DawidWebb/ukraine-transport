@@ -20,7 +20,7 @@ const EditItem = ({
   setIsEditModalOpen,
   kindOfItem,
 }) => {
-  const language = useSelector((store) => store.language);
+  const sessionStorege = useSelector((store) => store.sessionStorege);
   const localStorage = useSelector(
     (store) => store.localStorage[0].storageData
   );
@@ -32,7 +32,7 @@ const EditItem = ({
   const required = (value) =>
     value
       ? undefined
-      : language[0] === "PL"
+      : sessionStorege === "PL"
       ? GENERAL_REQUIRED_INFO.pl
       : GENERAL_REQUIRED_INFO.ua;
 
@@ -92,7 +92,7 @@ const EditItem = ({
                     initialValue={item.kindOfTransport}
                     validate={required}
                   />{" "}
-                  {language[0] === "PL"
+                  {sessionStorege === "PL"
                     ? KIND_TRANSPORT_LG[1].pl
                     : KIND_TRANSPORT_LG[1].ua}
                 </label>
@@ -104,14 +104,14 @@ const EditItem = ({
                     value="heavy"
                     initialValue={item.kindOfTransport}
                   />{" "}
-                  {language[0] === "PL"
+                  {sessionStorege === "PL"
                     ? KIND_TRANSPORT_LG[0].pl
                     : KIND_TRANSPORT_LG[0].ua}
                 </label>
               </div>
               <div className={styles.dates}>
                 <label>
-                  {language[0] === "PL"
+                  {sessionStorege === "PL"
                     ? DATE_AVAILABILITY_LG[0].pl
                     : DATE_AVAILABILITY_LG[0].ua}
                   <Field
@@ -124,7 +124,7 @@ const EditItem = ({
                   />{" "}
                 </label>
                 <label>
-                  {language[0] === "PL"
+                  {sessionStorege === "PL"
                     ? DATE_AVAILABILITY_LG[1].pl
                     : DATE_AVAILABILITY_LG[1].ua}
                   <Field
@@ -139,7 +139,7 @@ const EditItem = ({
               </div>
               <div className={styles.cities}>
                 <label>
-                  {language[0] === "PL"
+                  {sessionStorege === "PL"
                     ? CITIES_TRANSPORT_LG[0].pl
                     : CITIES_TRANSPORT_LG[0].ua}
                   <Field
@@ -152,7 +152,7 @@ const EditItem = ({
                   />{" "}
                 </label>
                 <label>
-                  {language[0] === "PL"
+                  {sessionStorege === "PL"
                     ? CITIES_TRANSPORT_LG[1].pl
                     : CITIES_TRANSPORT_LG[1].ua}
                   <Field
@@ -176,7 +176,7 @@ const EditItem = ({
                 }}
               >
                 <label>
-                  {language[0] === "PL"
+                  {sessionStorege === "PL"
                     ? PARAMS_TARNSPORT_LG[0].pl
                     : PARAMS_TARNSPORT_LG[0].ua}
                   <Field
@@ -188,7 +188,7 @@ const EditItem = ({
                   />{" "}
                 </label>
                 <label>
-                  {language[0] === "PL"
+                  {sessionStorege === "PL"
                     ? PARAMS_TARNSPORT_LG[1].pl
                     : PARAMS_TARNSPORT_LG[1].ua}
                   <Field
@@ -200,7 +200,7 @@ const EditItem = ({
                   />{" "}
                 </label>
                 <label>
-                  {language[0] === "PL"
+                  {sessionStorege === "PL"
                     ? PARAMS_TARNSPORT_LG[2].pl
                     : PARAMS_TARNSPORT_LG[2].ua}
                   <Field
@@ -214,7 +214,7 @@ const EditItem = ({
               </div>
               <div className={styles.additional}>
                 <label>
-                  {language[0] === "PL"
+                  {sessionStorege === "PL"
                     ? PARAMS_TARNSPORT_LG[3].pl
                     : PARAMS_TARNSPORT_LG[3].ua}
                   <Field
@@ -227,7 +227,7 @@ const EditItem = ({
                   />{" "}
                 </label>
                 <label>
-                  {language[0] === "PL"
+                  {sessionStorege === "PL"
                     ? PARAMS_TARNSPORT_LG[4].pl
                     : PARAMS_TARNSPORT_LG[4].ua}
                   <Field
@@ -242,7 +242,7 @@ const EditItem = ({
                   />{" "}
                 </label>
                 <label>
-                  {language[0] === "PL"
+                  {sessionStorege === "PL"
                     ? PARAMS_TARNSPORT_LG[5].pl
                     : PARAMS_TARNSPORT_LG[5].ua}
                   <Field
@@ -263,7 +263,7 @@ const EditItem = ({
                   <Button
                     type="button"
                     name={
-                      language[0] === "PL"
+                      sessionStorege === "PL"
                         ? GENERAL_BTN_CLOSE.pl
                         : GENERAL_BTN_CLOSE.ua
                     }
@@ -274,7 +274,7 @@ const EditItem = ({
                   <Button
                     type="submit"
                     name={
-                      language[0] === "PL"
+                      sessionStorege === "PL"
                         ? GENERAL_BTN_FORW.pl
                         : GENERAL_BTN_FORW.ua
                     }

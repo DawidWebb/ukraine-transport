@@ -22,7 +22,7 @@ const LoginPannel = ({ isLoginPannelOpen, setIsLoginPannelOpen }) => {
     }),
     [isLoginPannelOpen, setIsLoginPannelOpen]
   );
-  const language = useSelector((store) => store.language);
+  const sessionStorege = useSelector((store) => store.sessionStorege);
   const user = useSelector((store) => store.user);
 
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const LoginPannel = ({ isLoginPannelOpen, setIsLoginPannelOpen }) => {
   const required = (value) =>
     value
       ? undefined
-      : language[0] === "PL"
+      : sessionStorege === "PL"
       ? GENERAL_REQUIRED_INFO.pl
       : GENERAL_REQUIRED_INFO.ua;
 
@@ -95,7 +95,7 @@ const LoginPannel = ({ isLoginPannelOpen, setIsLoginPannelOpen }) => {
                 <Button
                   type="button"
                   name={
-                    language[0] === "PL"
+                    sessionStorege === "PL"
                       ? GENERAL_BTN_CLOSE.pl
                       : GENERAL_BTN_CLOSE.ua
                   }
@@ -104,7 +104,7 @@ const LoginPannel = ({ isLoginPannelOpen, setIsLoginPannelOpen }) => {
                 <Button
                   type="submit"
                   name={
-                    language[0] === "PL"
+                    sessionStorege === "PL"
                       ? GENERAL_BTN_FORW.pl
                       : GENERAL_BTN_FORW.ua
                   }
@@ -115,10 +115,10 @@ const LoginPannel = ({ isLoginPannelOpen, setIsLoginPannelOpen }) => {
         />
         <div className={styles.operations}>
           <Link to="/" onClick={handleOnCloseLoginPannel}>
-            {language[0] === "PL" ? LOST_PASS_LG.pl : LOST_PASS_LG.ua}
+            {sessionStorege === "PL" ? LOST_PASS_LG.pl : LOST_PASS_LG.ua}
           </Link>
           <Link to="/add-user" onClick={handleOnCloseLoginPannel}>
-            {language[0] === "PL" ? ADD_USER_LG.pl : ADD_USER_LG.ua}
+            {sessionStorege === "PL" ? ADD_USER_LG.pl : ADD_USER_LG.ua}
           </Link>
         </div>
       </div>

@@ -19,7 +19,7 @@ import {
 import styles from "./addUserPannel.module.scss";
 
 const AddUserPannel = () => {
-  const language = useSelector((store) => store.language);
+  const sessionStorege = useSelector((store) => store.sessionStorege);
   const task = useSelector((store) => store.task);
 
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ const AddUserPannel = () => {
       dispatch(
         taskMessengerOnly(
           `${
-            language[0] === "PL"
+            sessionStorege === "PL"
               ? ADD_USER_DIF_PASS_LG.pl
               : ADD_USER_DIF_PASS_LG.ua
           }`
@@ -55,13 +55,13 @@ const AddUserPannel = () => {
   const required = (value) =>
     value
       ? undefined
-      : language[0] === "PL"
+      : sessionStorege === "PL"
       ? GENERAL_REQUIRED_INFO.pl
       : GENERAL_REQUIRED_INFO.ua;
   return (
     <div className={styles.wrapper}>
       <h2>
-        {language[0] === "PL" ? ADD_USER_TITLE_LG.pl : ADD_USER_TITLE_LG.ua}
+        {sessionStorege === "PL" ? ADD_USER_TITLE_LG.pl : ADD_USER_TITLE_LG.ua}
       </h2>
       <div className={styles.inside}>
         <Form
@@ -84,7 +84,7 @@ const AddUserPannel = () => {
                     <div>
                       {values.name ? (
                         <p>
-                          {language[0] === "PL"
+                          {sessionStorege === "PL"
                             ? ADD_USER_NAME_LG.pl
                             : ADD_USER_NAME_LG.ua}
                         </p>
@@ -95,7 +95,7 @@ const AddUserPannel = () => {
                         type="text"
                         {...input}
                         placeholder={
-                          language[0] === "PL"
+                          sessionStorege === "PL"
                             ? ADD_USER_NAME_LG.pl
                             : ADD_USER_NAME_LG.ua
                         }
@@ -111,7 +111,7 @@ const AddUserPannel = () => {
                     <div>
                       {values.login ? (
                         <p>
-                          {language[0] === "PL"
+                          {sessionStorege === "PL"
                             ? ADD_USER_MAIL_LG.pl
                             : ADD_USER_MAIL_LG.ua}
                         </p>
@@ -122,7 +122,7 @@ const AddUserPannel = () => {
                         type="text"
                         {...input}
                         placeholder={
-                          language[0] === "PL"
+                          sessionStorege === "PL"
                             ? ADD_USER_MAIL_LG.pl
                             : ADD_USER_MAIL_LG.ua
                         }
@@ -139,7 +139,7 @@ const AddUserPannel = () => {
                     <div>
                       {values.password ? (
                         <p>
-                          {language[0] === "PL"
+                          {sessionStorege === "PL"
                             ? ADD_USER_PASS_LG.pl
                             : ADD_USER_PASS_LG.ua}
                         </p>
@@ -150,7 +150,7 @@ const AddUserPannel = () => {
                         type="password"
                         {...input}
                         placeholder={
-                          language[0] === "PL"
+                          sessionStorege === "PL"
                             ? ADD_USER_PASS_LG.pl
                             : ADD_USER_PASS_LG.ua
                         }
@@ -166,7 +166,7 @@ const AddUserPannel = () => {
                     <div>
                       {values.repassword ? (
                         <p>
-                          {language[0] === "PL"
+                          {sessionStorege === "PL"
                             ? ADD_USER_RE_PASS_LG.pl
                             : ADD_USER_RE_PASS_LG.ua}
                         </p>
@@ -177,7 +177,7 @@ const AddUserPannel = () => {
                         type="password"
                         {...input}
                         placeholder={
-                          language[0] === "PL"
+                          sessionStorege === "PL"
                             ? ADD_USER_RE_PASS_LG.pl
                             : ADD_USER_RE_PASS_LG.ua
                         }
@@ -191,7 +191,7 @@ const AddUserPannel = () => {
                 <Button
                   type="button"
                   name={
-                    language[0] === "PL"
+                    sessionStorege === "PL"
                       ? GENERAL_BTN_EXIT.pl
                       : GENERAL_BTN_EXIT.ua
                   }
@@ -200,7 +200,7 @@ const AddUserPannel = () => {
                 <Button
                   type="submit"
                   name={
-                    language[0] === "PL"
+                    sessionStorege === "PL"
                       ? GENERAL_BTN_SAVE.pl
                       : GENERAL_BTN_SAVE.ua
                   }

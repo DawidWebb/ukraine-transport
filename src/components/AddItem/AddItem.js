@@ -19,7 +19,7 @@ const AddItem = ({
   setIsAddVechicleModalOpen,
   kindOfItem,
 }) => {
-  const language = useSelector((store) => store.language);
+  const sessionStorege = useSelector((store) => store.sessionStorege);
   const localStorage = useSelector(
     (store) => store.localStorage[0].storageData
   );
@@ -29,7 +29,7 @@ const AddItem = ({
   const required = (value) =>
     value
       ? undefined
-      : language[0] === "PL"
+      : sessionStorege === "PL"
       ? GENERAL_REQUIRED_INFO.pl
       : GENERAL_REQUIRED_INFO.ua;
 
@@ -92,7 +92,7 @@ const AddItem = ({
                     validate={required}
                   />{" "}
                   <label htmlFor="pepole">
-                    {language[0] === "PL"
+                    {sessionStorege === "PL"
                       ? KIND_TRANSPORT_LG[1].pl
                       : KIND_TRANSPORT_LG[1].ua}
                   </label>
@@ -104,7 +104,7 @@ const AddItem = ({
                     id="heavy"
                   />{" "}
                   <label htmlFor="heavy">
-                    {language[0] === "PL"
+                    {sessionStorege === "PL"
                       ? KIND_TRANSPORT_LG[0].pl
                       : KIND_TRANSPORT_LG[0].ua}
                   </label>
@@ -121,7 +121,7 @@ const AddItem = ({
                   }}
                 >
                   <label>
-                    {language[0] === "PL"
+                    {sessionStorege === "PL"
                       ? DATE_AVAILABILITY_LG[0].pl
                       : DATE_AVAILABILITY_LG[0].ua}
                     <Field
@@ -138,7 +138,7 @@ const AddItem = ({
                     />{" "}
                   </label>
                   <label>
-                    {language[0] === "PL"
+                    {sessionStorege === "PL"
                       ? DATE_AVAILABILITY_LG[1].pl
                       : DATE_AVAILABILITY_LG[1].ua}
                     <Field
@@ -168,7 +168,7 @@ const AddItem = ({
                   }}
                 >
                   <label>
-                    {language[0] === "PL"
+                    {sessionStorege === "PL"
                       ? CITIES_TRANSPORT_LG[0].pl
                       : CITIES_TRANSPORT_LG[0].ua}
                     <Field
@@ -185,7 +185,7 @@ const AddItem = ({
                     />{" "}
                   </label>
                   <label>
-                    {language[0] === "PL"
+                    {sessionStorege === "PL"
                       ? CITIES_TRANSPORT_LG[1].pl
                       : CITIES_TRANSPORT_LG[1].ua}
                     <Field
@@ -218,7 +218,7 @@ const AddItem = ({
                   }}
                 >
                   <label>
-                    {language[0] === "PL"
+                    {sessionStorege === "PL"
                       ? PARAMS_TARNSPORT_LG[0].pl
                       : PARAMS_TARNSPORT_LG[0].ua}
                     <Field
@@ -236,7 +236,7 @@ const AddItem = ({
                     />{" "}
                   </label>
                   <label>
-                    {language[0] === "PL"
+                    {sessionStorege === "PL"
                       ? PARAMS_TARNSPORT_LG[1].pl
                       : PARAMS_TARNSPORT_LG[1].ua}
                     <Field
@@ -254,7 +254,7 @@ const AddItem = ({
                     />{" "}
                   </label>
                   <label>
-                    {language[0] === "PL"
+                    {sessionStorege === "PL"
                       ? PARAMS_TARNSPORT_LG[2].pl
                       : PARAMS_TARNSPORT_LG[2].ua}
                     <Field
@@ -282,7 +282,7 @@ const AddItem = ({
                   }}
                 >
                   <label>
-                    {language[0] === "PL"
+                    {sessionStorege === "PL"
                       ? PARAMS_TARNSPORT_LG[3].pl
                       : PARAMS_TARNSPORT_LG[3].ua}
                     <Field
@@ -299,7 +299,7 @@ const AddItem = ({
                     />{" "}
                   </label>
                   <label>
-                    {language[0] === "PL"
+                    {sessionStorege === "PL"
                       ? PARAMS_TARNSPORT_LG[4].pl
                       : PARAMS_TARNSPORT_LG[4].ua}
                     <Field
@@ -318,7 +318,7 @@ const AddItem = ({
                     />{" "}
                   </label>
                   <label>
-                    {language[0] === "PL"
+                    {sessionStorege === "PL"
                       ? PARAMS_TARNSPORT_LG[5].pl
                       : PARAMS_TARNSPORT_LG[5].ua}
                     <Field
@@ -344,7 +344,7 @@ const AddItem = ({
                   <Button
                     type="button"
                     name={
-                      language[0] === "PL"
+                      sessionStorege === "PL"
                         ? GENERAL_BTN_EXIT.pl
                         : GENERAL_BTN_EXIT.ua
                     }
@@ -359,7 +359,7 @@ const AddItem = ({
                   <Button
                     type="submit"
                     name={
-                      language[0] === "PL"
+                      sessionStorege === "PL"
                         ? GENERAL_BTN_FORW.pl
                         : GENERAL_BTN_FORW.ua
                     }

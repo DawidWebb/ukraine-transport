@@ -1,24 +1,32 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Menu } from "../../components";
-import { cookieCheck, itemCheck, setLang } from "../../data/actions";
+import {
+  cookieCheck,
+  itemCheck,
+  sessionItemSet,
+  sessionItemCheck,
+} from "../../data/actions";
 import styles from "./header.module.scss";
 
 const Header = () => {
-  const language = useSelector((store) => store.language);
+  const sessionStorege = useSelector((store) => store.sessionStorege);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(cookieCheck());
     dispatch(itemCheck());
+    dispatch(sessionItemCheck());
   }, [dispatch]);
 
   const handleOnChangeLanguage = () => {
-    if (language[0] === "PL") {
-      dispatch(setLang(["UA"]));
+    if (sessionStorege === "PL") {
+      const language = "UA";
+      dispatch(sessionItemSet(language));
     } else {
-      dispatch(setLang(["PL"]));
+      const language = "PL";
+      dispatch(sessionItemSet(language));
     }
   };
 
@@ -37,7 +45,7 @@ const Header = () => {
           onClick={handleOnChangeLanguage}
           style={{
             backgroundImage: `${
-              language[0] === "PL"
+              sessionStorege === "PL" || !sessionStorege
                 ? "url(../images/ua.jpg)"
                 : "url(../images/pl.jpg)"
             }`,

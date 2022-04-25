@@ -12,7 +12,7 @@ import styles from "./myItems.module.scss";
 
 const MyItems = () => {
   const kindOfItem = useSelector((store) => store.kindOfItem);
-  const language = useSelector((store) => store.language);
+  const sessionStorege = useSelector((store) => store.sessionStorege);
   const localStorage = useSelector(
     (store) => store.localStorage[0].storageData
   );
@@ -64,10 +64,10 @@ const MyItems = () => {
 
   const title =
     kindOfItem === "have"
-      ? language[0] === "PL"
+      ? sessionStorege === "PL"
         ? VECHICLE_ITEMS_LG[0].pl
         : VECHICLE_ITEMS_LG[0].ua
-      : language[0] === "PL"
+      : sessionStorege === "PL"
       ? NEEDS_ITEMS_LG[0].pl
       : NEEDS_ITEMS_LG[0].ua;
 
@@ -77,7 +77,7 @@ const MyItems = () => {
         <Button
           type="button"
           name={
-            language[0] === "PL"
+            sessionStorege === "PL"
               ? VECHICLE_ITEMS_LG[2].pl
               : VECHICLE_ITEMS_LG[2].ua
           }
@@ -86,7 +86,7 @@ const MyItems = () => {
         <Button
           type="button"
           name={
-            language[0] === "PL"
+            sessionStorege === "PL"
               ? VECHICLE_ITEMS_LG[3].pl
               : VECHICLE_ITEMS_LG[3].ua
           }
@@ -98,14 +98,18 @@ const MyItems = () => {
         <Button
           type="button"
           name={
-            language[0] === "PL" ? NEEDS_ITEMS_LG[2].pl : NEEDS_ITEMS_LG[2].ua
+            sessionStorege === "PL"
+              ? NEEDS_ITEMS_LG[2].pl
+              : NEEDS_ITEMS_LG[2].ua
           }
           onClick={handleAddVechicle}
         />
         <Button
           type="button"
           name={
-            language[0] === "PL" ? NEEDS_ITEMS_LG[3].pl : NEEDS_ITEMS_LG[3].ua
+            sessionStorege === "PL"
+              ? NEEDS_ITEMS_LG[3].pl
+              : NEEDS_ITEMS_LG[3].ua
           }
           onClick={handleShowAllVechicle}
         />

@@ -15,7 +15,7 @@ import {
 import styles from "./haveTransport.module.scss";
 
 const HaveTransport = () => {
-  const language = useSelector((store) => store.language);
+  const sessionStorege = useSelector((store) => store.sessionStorege);
   const cookie = useSelector((store) => store.cookie[0].isCookie);
   const localStorage = useSelector(
     (store) => store.localStorage[0].storageData
@@ -68,7 +68,7 @@ const HaveTransport = () => {
   };
 
   const transportItemsSearchByCityViev = !foundItems.length
-    ? language[0] === "PL"
+    ? sessionStorege === "PL"
       ? EMPTY_LG.pl
       : EMPTY_LG.ua
     : foundItems.map((item) => {
@@ -103,20 +103,22 @@ const HaveTransport = () => {
       <div className={styles.inside}>
         <div className={styles.transportMenu}>
           <div className={styles.info}>
-            <h3>{language[0] === "PL" ? TITLE_LG[0].pl : TITLE_LG[0].ua}</h3>
+            <h3>{sessionStorege === "PL" ? TITLE_LG[0].pl : TITLE_LG[0].ua}</h3>
             <p
               style={{
                 display: `${!cookie && !localStorage ? "block" : "none"}`,
               }}
             >
-              {language[0] === "PL" ? INFO_LG[0].pl : INFO_LG[0].ua}
+              {sessionStorege === "PL" ? INFO_LG[0].pl : INFO_LG[0].ua}
             </p>
           </div>
           <div className={styles.forms}>
             <form>
               <input
                 type="text"
-                placeholder={language[0] === "PL" ? SEARCH_LG.pl : SEARCH_LG.ua}
+                placeholder={
+                  sessionStorege === "PL" ? SEARCH_LG.pl : SEARCH_LG.ua
+                }
                 onChange={handleChangeCity}
               />
             </form>
@@ -128,19 +130,19 @@ const HaveTransport = () => {
               >
                 <option value="all">
                   {" "}
-                  {language[0] === "PL"
+                  {sessionStorege === "PL"
                     ? KIND_TRANSPORT_LG[2].pl
                     : KIND_TRANSPORT_LG[2].ua}
                 </option>
                 <option value="heavy">
                   {" "}
-                  {language[0] === "PL"
+                  {sessionStorege === "PL"
                     ? KIND_TRANSPORT_LG[0].pl
                     : KIND_TRANSPORT_LG[0].ua}
                 </option>
                 <option value="pepole">
                   {" "}
-                  {language[0] === "PL"
+                  {sessionStorege === "PL"
                     ? KIND_TRANSPORT_LG[1].pl
                     : KIND_TRANSPORT_LG[1].ua}
                 </option>
@@ -156,13 +158,15 @@ const HaveTransport = () => {
           >
             <Button
               type="button"
-              name={language[0] === "PL" ? ADD_BTN_LG[0].pl : ADD_BTN_LG[0].ua}
+              name={
+                sessionStorege === "PL" ? ADD_BTN_LG[0].pl : ADD_BTN_LG[0].ua
+              }
               onClick={handleAddVechicle}
             />
             <Button
               type="button"
               name={
-                language[0] === "PL" ? SHOW_BTN_LG[0].pl : SHOW_BTN_LG[0].ua
+                sessionStorege === "PL" ? SHOW_BTN_LG[0].pl : SHOW_BTN_LG[0].ua
               }
               onClick={handleShowMyVechicle}
               id="have"
