@@ -2,11 +2,13 @@
 
 .wrapper {
     width: 100%;
+    padding-top: 80px;
+
 
     h2 {
         display: inline-block;
         width: 300px;
-        color: $firstColor;
+        color: $thirdColor;
         margin: 30px auto 0 auto;
         text-align: center;
     }
@@ -43,6 +45,61 @@
 
                     span {
                         color: $worrningColor;
+                        font-weight: 700;
+                    }
+                }
+
+                .check {
+
+                    width: 90%;
+                    margin: 0 auto;
+                    margin-bottom: 20px;
+
+
+                    label {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+
+                        width: 340px;
+
+                        p {
+                            margin-left: 10px;
+
+                            cursor: pointer;
+                            transition: 0.4s;
+
+
+                        }
+
+                    }
+
+                    label>input[type="checkbox"] {
+                        display: none;
+                    }
+
+                    label>input[type="checkbox"]+*::before {
+                        content: "";
+                        display: inline-block;
+                        vertical-align: bottom;
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 5px;
+                        border: 2px solid $thirdColor;
+                        border-radius: 4px;
+                    }
+
+                    label>input[type="checkbox"]:checked+*::before {
+                        content: "✓";
+                        color: white;
+                        text-align: center;
+                        background: $thirdColor;
+                        border-color: $thirdColor;
+                    }
+
+                    label>input[type="checkbox"]:checked+* {
+                        color: $thirdColor;
                         font-weight: 700;
                     }
                 }

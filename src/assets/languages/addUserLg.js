@@ -27,3 +27,12 @@ export const ADD_USER_DIF_PASS_LG = {
   pl: "Hasła róźnią się od siebie",
   ua: "Паролі не співпадають",
 };
+
+export const ADD_USER_RODO_LG = {
+  pl: "Akceptuję politykę RODO i ciasteczek",
+  ua: "Я приймаю GDPR та політику щодо файлів cookie",
+};
+export const ADD_USER_CONDITIONS_LG = {
+  pl: "Akceptuję warunki tego serwisu",
+  ua: "Я приймаю умови цього веб-сайту",
+};

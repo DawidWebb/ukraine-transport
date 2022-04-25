@@ -10,6 +10,8 @@ import {
   ADD_USER_LG,
   LOST_PASS_LG,
   GENERAL_REQUIRED_INFO,
+  LOGIN_LG,
+  PASS_LG,
 } from "../../assets/languages";
 
 import styles from "./loginPannel.module.scss";
@@ -73,7 +75,13 @@ const LoginPannel = ({ isLoginPannelOpen, setIsLoginPannelOpen }) => {
                   {({ input, meta }) => (
                     <div>
                       {values.login ? <p>Login</p> : <p></p>}
-                      <input type="text" {...input} placeholder="Login" />
+                      <input
+                        type="text"
+                        {...input}
+                        placeholder={
+                          sessionStorege === "PL" ? LOGIN_LG.pl : LOGIN_LG.ua
+                        }
+                      />
                       {meta.error && meta.touched && <span>{meta.error}</span>}
                     </div>
                   )}
@@ -85,7 +93,13 @@ const LoginPannel = ({ isLoginPannelOpen, setIsLoginPannelOpen }) => {
                   {({ input, meta }) => (
                     <div>
                       {values.password ? <p>Hasło</p> : <p></p>}
-                      <input type="password" {...input} placeholder="Hasło" />
+                      <input
+                        type="password"
+                        {...input}
+                        placeholder={
+                          sessionStorege === "PL" ? PASS_LG.pl : PASS_LG.ua
+                        }
+                      />
                       {meta.error && meta.touched && <span>{meta.error}</span>}
                     </div>
                   )}

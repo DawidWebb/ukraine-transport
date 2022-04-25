@@ -21,6 +21,7 @@
 
                 input {
                     @include standardInput;
+                    width: 180px;
 
                 }
 
@@ -63,7 +64,7 @@
             text-decoration: none;
 
             &:hover {
-                color: $secondColor;
+                color: $thirdColor;
             }
         }
     }

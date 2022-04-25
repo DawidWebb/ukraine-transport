@@ -35,26 +35,28 @@
     height: 25px;
     border-radius: 25px;
     border: none;
-    background-color: $secondColor;
-    color: $darkenFirstColor;
+    background-color: $thirdColor;
+    color: $textFirstColor;
     font-size: $xs-fz;
     font-weight: 700;
     cursor: pointer;
     transition: $transition;
 
     &:hover {
-        background-color: $darkenSecondColor;
-        color: $textFirstColor;
+        background-color: $secondColor;
+        color: black;
     }
 }
 
 @mixin standardInput {
     background-color: transparent;
     border: none;
+    width: 240px;
     height: 25px;
     font-size: $s-fz;
     color: $textFirstColor;
-    border-bottom: 2px solid $secondColor;
+    font-weight: 700;
+    border-bottom: 2px solid $thirdColor;
 
     @media screen and (min-width:map-get($breakpoints, medium)) {
         font-size: $xl-fz;

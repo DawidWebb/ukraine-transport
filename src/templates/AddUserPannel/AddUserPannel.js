@@ -14,6 +14,8 @@ import {
   ADD_USER_PASS_LG,
   ADD_USER_RE_PASS_LG,
   ADD_USER_DIF_PASS_LG,
+  ADD_USER_RODO_LG,
+  ADD_USER_CONDITIONS_LG,
 } from "../../assets/languages";
 
 import styles from "./addUserPannel.module.scss";
@@ -183,6 +185,52 @@ const AddUserPannel = () => {
                         }
                       />
                       {meta.error && meta.touched && <span>{meta.error}</span>}
+                    </div>
+                  )}
+                </Field>
+              </div>
+              <div className={styles.element}>
+                <Field name="rodo" type="checkbox" validate={required}>
+                  {({ input, meta }) => (
+                    <div className={styles.check}>
+                      <label htmlFor="rodo">
+                        <input type="checkbox" id="rodo" {...input} />
+
+                        <p
+                          style={{
+                            color: !values.rodo
+                              ? "rgb(242, 29, 29)"
+                              : "rgb(2, 152, 2)",
+                          }}
+                        >
+                          {sessionStorege === "PL"
+                            ? ADD_USER_RODO_LG.pl
+                            : ADD_USER_RODO_LG.ua}
+                        </p>
+                      </label>
+                    </div>
+                  )}
+                </Field>
+              </div>
+              <div className={styles.element}>
+                <Field name="conditions" type="checkbox" validate={required}>
+                  {({ input, meta }) => (
+                    <div className={styles.check}>
+                      <label htmlFor="conditions">
+                        <input type="checkbox" id="conditions" {...input} />
+
+                        <p
+                          style={{
+                            color: !values.conditions
+                              ? "rgb(242, 29, 29)"
+                              : "rgb(2, 152, 2)",
+                          }}
+                        >
+                          {sessionStorege === "PL"
+                            ? ADD_USER_CONDITIONS_LG.pl
+                            : ADD_USER_CONDITIONS_LG.ua}
+                        </p>
+                      </label>
                     </div>
                   )}
                 </Field>

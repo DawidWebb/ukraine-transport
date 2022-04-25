@@ -59,6 +59,32 @@
         }
     }
 
+    @media screen and (min-width:map-get($breakpoints, medium)) {
+        .inside {
+
+
+            .startPic {
+
+
+                div {
+
+                    h2 {
+                        font-size: $mid-title-fz;
+
+                    }
+
+                    h3 {
+                        font-size: $mid-title-fz/1.3;
+
+                    }
+                }
+
+            }
+
+            .startInfo {}
+        }
+    }
+
     @media screen and (min-width:map-get($breakpoints, large)) {
         .inside {
 
@@ -68,6 +94,32 @@
                 height: 70vh;
                 background-image: url("../../assets/images/macaw-7117439_1920.jpg");
                 background-position: center;
+            }
+
+            .startInfo {}
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, x-large)) {
+        .inside {
+
+
+            .startPic {
+
+
+                div {
+
+                    h2 {
+                        font-size: $mid-title-fz*1.3;
+
+                    }
+
+                    h3 {
+                        font-size: $mid-title-fz;
+
+                    }
+                }
+
             }
 
             .startInfo {}
