@@ -53,6 +53,19 @@ export const SHOW_BTN_LG = [
     ua: "мої запити",
   },
 ];
+
+export const EDIT_TITLE_LG = [
+  {
+    id: "needTitle",
+    pl: "edycja zapytania",
+    ua: "редагування запиту",
+  },
+  {
+    id: "haveTitle",
+    pl: "edycja transportu",
+    ua: "транспортне видання",
+  },
+];
 export const KIND_TRANSPORT_LG = [
   { id: "heavy", pl: "towarowy", ua: "торгова" },
   { id: "people", pl: "osobowy", ua: "особистий" },

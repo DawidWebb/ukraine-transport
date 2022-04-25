@@ -6,12 +6,11 @@
     background-color: $fourthColor;
     border-top: 2px solid $textFirstColor;
     border-radius: 3px;
-    color: $firstColor;
     cursor: pointer;
     transition: $transition;
 
     &:hover {
-        color: $darkenFirstColor;
+        color: black;
         background-color: $darkenFourthColor;
     }
 
@@ -27,6 +26,7 @@
             h3 {
                 text-align: center;
                 font-size: $xl-fz;
+                color: $thirdColor;
             }
 
             .routes,

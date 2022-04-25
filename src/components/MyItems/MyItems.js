@@ -29,7 +29,7 @@ const MyItems = () => {
   const handleShowAllVechicle = () => {
     if (kindOfItem === "have") {
       navigate("/have-transport");
-    } else if (kindOfItem === "needs") {
+    } else if (kindOfItem === "need") {
       navigate("/need-transport");
     }
   };

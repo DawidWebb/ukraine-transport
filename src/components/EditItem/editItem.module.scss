@@ -1,1 +1,294 @@
 @import "../../StylesRoot/common.scss";
+@import "../../StylesRoot/common.scss";
+
+.wrapper {
+    width: 280px;
+
+    h3 {
+        color: $thirdColor;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 100%;
+
+        .transport,
+        .dates,
+        .cities,
+        .parametrs,
+        .additional {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .element {
+                flex-basis: 90%;
+                flex-direction: column;
+                margin-top: 20px;
+            }
+        }
+
+        .transport {
+
+
+            .element {
+                justify-content: space-around;
+
+
+                input[type="radio"] {
+                    opacity: 0;
+                    position: fixed;
+                    width: 0;
+                }
+
+                label {
+                    display: inline-block;
+                    flex-basis: 33%;
+                    background-color: $firstColor;
+                    color: $textFirstColor;
+                    text-align: center;
+                    padding: 2px;
+                    font-size: 14px;
+                    border: 2px solid $secondColor;
+                    border-radius: 4px;
+
+                }
+            }
+
+            .element {
+                input[type="radio"]:checked+label {
+                    background-color: $secondColor;
+                    color: black;
+                    font-weight: 700;
+
+                }
+            }
+
+            .element {
+                label:hover {
+                    background-color: $darkenSecondColor;
+                    color: black;
+                }
+            }
+        }
+
+        .dates {
+
+            .element {
+
+                label {
+                    display: flex;
+                    justify-content: space-between;
+                    color: $textFirstColor;
+
+                    input {
+                        margin-left: 10px;
+                        border: none;
+                        border-radius: 3px;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+
+        .cities {
+
+            .element {
+                label {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: center;
+                    color: $textFirstColor;
+
+                    input {
+                        background-color: transparent;
+                        border: 1px solid $fourthColor;
+                        border-radius: 4px;
+                        padding: 2px;
+                        font-weight: 700;
+                    }
+
+
+
+
+                }
+            }
+        }
+
+        .parametrs {
+
+
+            .element {
+                label {
+                    display: flex;
+                    justify-content: space-between;
+                    text-align: center;
+                    color: $textFirstColor;
+                    margin-bottom: 5px;
+
+                    input {
+                        background-color: transparent;
+                        border: 1px solid $fourthColor;
+                        border-radius: 4px;
+                        padding: 2px;
+                        font-weight: 700;
+                        width: 100px
+                    }
+
+                }
+            }
+
+        }
+
+        .additional {
+
+            .element {
+                label {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    text-align: center;
+                    color: $textFirstColor;
+                    margin-bottom: 5px;
+
+                    input {
+                        background-color: transparent;
+                        border: 1px solid $fourthColor;
+                        border-radius: 4px;
+                        padding: 2px;
+                        font-weight: 700;
+                        width: 100px;
+                    }
+
+                    textarea {
+                        flex-basis: 100%;
+                        border: 1px solid $fourthColor;
+                        background-color: transparent;
+                        border-radius: 4px;
+                        padding: 2px;
+                        font-weight: 700;
+                    }
+
+                }
+            }
+
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+
+            button {
+                @include formButton;
+            }
+        }
+    }
+
+    @media screen and (orientation: landscape) {
+        width: 600px;
+
+        .form {
+
+            .dates,
+            .cities {
+                .element {
+                    display: flex;
+                    flex-basis: 100%;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+
+
+                    label {
+                        width: 280px;
+                        flex-direction: row;
+                        justify-content: center;
+
+                        input {
+                            width: 150px;
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+
+            .parametrs {
+                .element {
+                    display: flex;
+                    flex-basis: 100%;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    label {
+                        flex-direction: row;
+                        justify-content: space-between;
+
+                        input {
+                            width: 70px;
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+
+            .additional {
+                .element {
+                    display: flex;
+                    flex-basis: 100%;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    label {
+                        width: 38%;
+                        display: flex;
+
+                        input {
+                            width: 70px;
+                            margin-left: 0;
+                        }
+
+                        textarea {
+                            width: 100px;
+                            height: 50px;
+                            background-color: transparent;
+                            border-radius: 4px;
+                            padding: 2px;
+                            font-weight: 700;
+                        }
+                    }
+
+                    label:nth-child(1) {
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        flex-basis: 20%;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, large)) {
+        width: 800px;
+
+        .form {
+
+            .transport,
+            .dates,
+            .cities,
+            .parametrs,
+            .additional {
+
+
+                .element {
+                    flex-basis: 80%;
+                    margin-top: 30px;
+                    font-size: $xl-fz*1.1;
+                }
+            }
+        }
+    }
+}

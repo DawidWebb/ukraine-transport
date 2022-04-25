@@ -1,1 +1,231 @@
 @import "../../StylesRoot/common.scss";
+
+.wrapper {
+    width: 100%;
+    margin-top: 80px;
+
+    .inside {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 40px auto;
+
+        .transportMenu {
+
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            background-color: $secondColor;
+
+
+            .info {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 10px;
+
+
+                h3 {
+                    flex-basis: 100%;
+                    color: $thirdColor;
+                    text-align: left;
+                }
+
+                p {
+                    flex-basis: 100%;
+                    margin-top: 10px;
+                    text-align: center;
+                    color: $doneColor;
+                    font-size: $xs-fz;
+                    font-weight: 700;
+                }
+            }
+
+
+            .forms {
+                flex-basis: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+
+
+                form {
+
+                    input {
+                        height: 25px;
+                        border: none;
+                        padding: 5px;
+                        border: 1px solid $firstColor;
+                        border-radius: 5px;
+                    }
+                }
+
+                form {
+
+
+                    select {
+                        height: 25px;
+                        border: none;
+
+                        border: 1px solid $firstColor;
+                        border-radius: 5px;
+
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .operation {
+                flex-basis: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 20px;
+
+                button {
+                    @include standardButton;
+                    background-color: $thirdColor;
+                    color: $textFirstColor;
+                    font-weight: 700;
+                    width: 200px;
+                    margin-bottom: 20px;
+
+                    &:hover {
+                        background-color: $firstColor;
+                        color: $thirdColor;
+                    }
+                }
+            }
+        }
+
+        .itemsViev {}
+    }
+
+    @media screen and (min-width:map-get($breakpoints, small)) {
+        .inside {
+
+
+            .transportMenu {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+                flex-wrap: wrap;
+
+                .forms {
+                    flex-basis: 500px;
+
+                }
+
+                .operation {
+                    flex-basis: 100%;
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, medium)) {
+        .inside {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            .transportMenu {
+                flex-wrap: wrap;
+
+                .info {
+                    flex-basis: 25%;
+
+                    p {
+                        font-size: $xl-fz;
+                    }
+                }
+
+                .forms {
+                    flex-basis: 40%;
+
+
+                    form {
+
+                        input,
+                        input::placeholder {
+                            height: 30px;
+                            font-size: $xl-fz;
+                        }
+
+                        select {
+                            height: 30px;
+
+                            option {
+                                font-size: $xl-fz;
+                            }
+                        }
+                    }
+                }
+
+                .operation {
+                    flex-basis: 65%;
+                    flex-direction: row;
+
+                    button {
+                        width: 230px
+                    }
+
+                }
+            }
+
+            .itemsViev {
+                flex-basis: 100%;
+
+            }
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, large)) {
+        .inside {
+
+            .transportMenu {
+                .info {
+                    flex-basis: 18%;
+                }
+
+                .forms {
+                    flex-basis: 30%;
+
+                }
+
+                .operation {
+                    flex-basis: 50%;
+
+                }
+            }
+
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, x-large)) {
+        .inside {
+
+            .transportMenu {
+                .forms {
+                    flex-basis: 35%;
+
+
+                }
+
+                .operation {
+                    flex-basis: 40%;
+
+                    button {
+                        width: 240px;
+                    }
+
+                }
+            }
+
+        }
+    }
+}

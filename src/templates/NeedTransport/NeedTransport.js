@@ -101,70 +101,77 @@ const NeedTransport = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.inside}>
-        <div className={styles.info}>
-          <h2>{sessionStorege === "PL" ? TITLE_LG[1].pl : TITLE_LG[1].ua}</h2>
-          <p
+        <div className={styles.transportMenu}>
+          <div className={styles.info}>
+            <h3>{sessionStorege === "PL" ? TITLE_LG[1].pl : TITLE_LG[1].ua}</h3>
+            <p
+              style={{
+                display: `${!cookie && !localStorage ? "block" : "none"}`,
+              }}
+            >
+              {sessionStorege === "PL" ? INFO_LG[1].pl : INFO_LG[1].ua}
+            </p>
+          </div>
+          <div className={styles.forms}>
+            <form>
+              <input
+                type="text"
+                placeholder={
+                  sessionStorege === "PL" ? SEARCH_LG.pl : SEARCH_LG.ua
+                }
+                onChange={handleChangeCity}
+              />
+            </form>
+            <form>
+              <select
+                name="transportKind"
+                id="transportKind"
+                onChange={handleChangeTransport}
+              >
+                <option value="all">
+                  {" "}
+                  {sessionStorege === "PL"
+                    ? KIND_TRANSPORT_LG[2].pl
+                    : KIND_TRANSPORT_LG[2].ua}
+                </option>
+                <option value="heavy">
+                  {" "}
+                  {sessionStorege === "PL"
+                    ? KIND_TRANSPORT_LG[0].pl
+                    : KIND_TRANSPORT_LG[0].ua}
+                </option>
+                <option value="pepole">
+                  {" "}
+                  {sessionStorege === "PL"
+                    ? KIND_TRANSPORT_LG[1].pl
+                    : KIND_TRANSPORT_LG[1].ua}
+                </option>
+              </select>
+            </form>
+          </div>
+
+          <div
+            className={styles.operation}
             style={{
-              display: `${!cookie && !localStorage ? "block" : "none"}`,
+              display: `${!cookie && !localStorage ? "none" : "flex"}`,
             }}
           >
-            {sessionStorege === "PL" ? INFO_LG[1].pl : INFO_LG[1].ua}
-          </p>
-          <form>
-            <input
-              type="text"
-              placeholder={
-                sessionStorege === "PL" ? SEARCH_LG.pl : SEARCH_LG.ua
+            <Button
+              type="button"
+              name={
+                sessionStorege === "PL" ? ADD_BTN_LG[1].pl : ADD_BTN_LG[1].ua
               }
-              onChange={handleChangeCity}
+              onClick={handleAddNeeds}
             />
-          </form>
-          <form>
-            <select
-              name="transportKind"
-              id="transportKind"
-              onChange={handleChangeTransport}
-            >
-              <option value="all">
-                {" "}
-                {sessionStorege === "PL"
-                  ? KIND_TRANSPORT_LG[2].pl
-                  : KIND_TRANSPORT_LG[2].ua}
-              </option>
-              <option value="heavy">
-                {" "}
-                {sessionStorege === "PL"
-                  ? KIND_TRANSPORT_LG[0].pl
-                  : KIND_TRANSPORT_LG[0].ua}
-              </option>
-              <option value="pepole">
-                {" "}
-                {sessionStorege === "PL"
-                  ? KIND_TRANSPORT_LG[1].pl
-                  : KIND_TRANSPORT_LG[1].ua}
-              </option>
-            </select>
-          </form>
-        </div>
-        <div
-          className={styles.operation}
-          style={{
-            display: `${!cookie && !localStorage ? "none" : "flex"}`,
-          }}
-        >
-          <Button
-            type="button"
-            name={sessionStorege === "PL" ? ADD_BTN_LG[1].pl : ADD_BTN_LG[1].ua}
-            onClick={handleAddNeeds}
-          />
-          <Button
-            type="button"
-            name={
-              sessionStorege === "PL" ? SHOW_BTN_LG[1].pl : SHOW_BTN_LG[1].ua
-            }
-            onClick={handleShowMyNeeds}
-            id="need"
-          />
+            <Button
+              type="button"
+              name={
+                sessionStorege === "PL" ? SHOW_BTN_LG[1].pl : SHOW_BTN_LG[1].ua
+              }
+              onClick={handleShowMyNeeds}
+              id="need"
+            />
+          </div>
         </div>
         <div className={styles.itemsViev}>{transportItemsSearchByCityViev}</div>
       </div>
