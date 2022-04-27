@@ -66,16 +66,19 @@ const AddItem = ({
       <div className={styles.wrapper}>
         <Form
           onSubmit={handleOnSubmit}
-          render={({ handleSubmit, form, submitting, pristine, values }) => (
+          render={({
+            handleSubmit,
+            form,
+            reset,
+            submitting,
+            pristine,
+            values,
+          }) => (
             <form
               className={styles.form}
-              onSubmit={(event) => {
-                const promise = handleSubmit(event);
-                promise &&
-                  promise.then(() => {
-                    form.reset();
-                  });
-                return promise;
+              onSubmit={async (event) => {
+                await handleSubmit(event);
+                form.reset();
               }}
             >
               <div className={styles.transport}>

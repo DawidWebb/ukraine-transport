@@ -74,7 +74,7 @@ const LoginPannel = ({ isLoginPannelOpen, setIsLoginPannelOpen }) => {
                 <Field name="login" validate={required}>
                   {({ input, meta }) => (
                     <div>
-                      {values.login ? <p>Login</p> : <p></p>}
+                      {values.login ? <p>login</p> : <p></p>}
                       <input
                         type="text"
                         {...input}
@@ -92,7 +92,7 @@ const LoginPannel = ({ isLoginPannelOpen, setIsLoginPannelOpen }) => {
                 <Field name="password" validate={required}>
                   {({ input, meta }) => (
                     <div>
-                      {values.password ? <p>Hasło</p> : <p></p>}
+                      {values.password ? <p>hasło</p> : <p></p>}
                       <input
                         type="password"
                         {...input}

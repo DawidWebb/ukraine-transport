@@ -71,7 +71,7 @@ const NeedTransport = () => {
     ? sessionStorege === "PL"
       ? EMPTY_LG.pl
       : EMPTY_LG.ua
-    : foundItems.map((item) => {
+    : foundItems.reverse().map((item) => {
         if (selectedCity === "") {
           return (
             <TransportItem

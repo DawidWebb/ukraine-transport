@@ -69,7 +69,7 @@ export const editTransport = (transportData) => async (dispatch) => {
   if (status === 202) {
     dispatch(removeSpinner());
     dispatch({
-      type: EDIT_NEEDS,
+      type: EDIT_TRANSPORT,
       payload: data.data,
     });
   } else {
