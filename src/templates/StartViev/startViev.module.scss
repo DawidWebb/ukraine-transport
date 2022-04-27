@@ -31,6 +31,7 @@
 
                 }
 
+
                 h3 {
                     position: absolute;
                     top: 70%;
@@ -44,12 +45,91 @@
 
         }
 
-        .startInfo {}
+        .startInfo {
+            width: 80%;
+            margin: 40px auto;
+
+            h2 {
+                margin-bottom: 30px;
+            }
+
+            .graphics {
+                width: 100%;
+                margin-bottom: 40px;
+            }
+
+            h3 {
+                text-align: center;
+                color: darken($firstColor, 20%);
+
+            }
+        }
+
+        .startLinks {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            margin: 0 auto;
+
+            a {
+                position: relative;
+                width: 300px;
+                height: 300px;
+                margin-top: 40px;
+                margin-bottom: 40px;
+                border: 6px solid $secondColor;
+                border-radius: $radius;
+                transition: $transition;
+
+                svg {
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    fill: $firstColor;
+                    width: 280px;
+                    height: 280px;
+                    transition: $transition;
+                    position: absolute;
+                    opacity: 0.7;
+                }
+
+                &:hover {
+
+                    background-color: $firstColor
+                }
+
+                &:hover>svg {
+
+                    fill: $thirdColor
+                }
+
+                p {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 70%;
+                    transform: translate(-50%, -50%);
+                    text-align: center;
+                    color: $thirdColor;
+                    font-size: 22px;
+                    font-weight: 700;
+                    transition: $transition;
+
+                }
+
+                &:hover>p {
+                    color: $textFirstColor;
+                }
+            }
+        }
+
+
     }
 
     @media screen and (orientation: landscape) {
         .inside {
-
 
             .startPic {
                 height: 75vh;
@@ -57,16 +137,30 @@
                 background-position-x: 0px;
             }
 
-            .startInfo {}
+            .startLinks {
+                a {
+
+                    width: 340px;
+                    height: 340px;
+
+
+                    svg {
+
+                        width: 300px;
+                        height: 300px;
+                    }
+
+                    p {
+                        font-size: 24px;
+                    }
+                }
+            }
         }
     }
 
     @media screen and (min-width:map-get($breakpoints, medium)) {
         .inside {
-
-
             .startPic {
-
 
                 div {
 
@@ -83,7 +177,37 @@
 
             }
 
-            .startInfo {}
+            .startInfo {
+                h2 {
+                    font-size: 28px;
+                }
+
+                h3 {
+                    font-size: 22px;
+                }
+            }
+
+            .startLinks {
+                flex-direction: row;
+                justify-content: space-between;
+
+                a {
+
+                    width: 340px;
+                    height: 340px;
+
+
+                    svg {
+
+                        width: 300px;
+                        height: 300px;
+                    }
+
+                    p {
+                        font-size: 24px;
+                    }
+                }
+            }
         }
     }
 
@@ -98,13 +222,34 @@
                 background-position: center;
             }
 
-            .startInfo {}
+            .startInfo {
+                h2 {
+                    font-size: 30px;
+                }
+
+                h3 {
+                    font-size: 24px;
+                }
+            }
+
+            .startLinks {
+                width: 70%;
+                justify-content: space-around;
+            }
         }
     }
 
     @media screen and (min-width:map-get($breakpoints, x-large)) {
         .inside {
+            .startInfo {
+                h2 {
+                    font-size: 34px;
+                }
 
+                h3 {
+                    font-size: 28px;
+                }
+            }
 
             .startPic {
 
@@ -124,7 +269,7 @@
 
             }
 
-            .startInfo {}
+
         }
     }
 

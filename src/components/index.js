@@ -8,5 +8,6 @@ export { default as Menu } from "./Menu";
 export { default as Modal } from "./Modal";
 export { default as MyItems } from "./MyItems";
 export { default as Spinner } from "./Spinner";
+export { default as StartGraphicsItem } from "./StartGraphicsItem";
 export { default as TaskInformation } from "./TaskInformation";
 export { default as TransportItem } from "./TransportItem";

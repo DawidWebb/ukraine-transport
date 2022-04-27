@@ -1,0 +1,104 @@
+@import "../../StylesRoot/common.scss";
+
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    div {
+        svg {
+            width: 40px;
+            height: 40px;
+            fill: $firstColor;
+        }
+    }
+
+    div:nth-child(1) {
+
+        svg {
+            animation: colorChanger 18s infinite;
+        }
+    }
+
+    div:nth-child(2) {
+        svg {
+            animation: colorChanger 18s 3s infinite;
+        }
+    }
+
+    div:nth-child(3) {
+        svg {
+            animation: colorChanger 18s 6s infinite;
+        }
+    }
+
+    div:nth-child(4) {
+        svg {
+            animation: colorChanger 18s 9s infinite;
+        }
+    }
+
+    div:nth-child(5) {
+        svg {
+            animation: colorChanger 18s 12s infinite;
+        }
+    }
+
+    div:nth-child(6) {
+        svg {
+            animation: colorChanger 18s 15s infinite;
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, medium)) {
+        div {
+            svg {
+                width: 60px;
+                height: 60px;
+
+            }
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, large)) {
+        div {
+            svg {
+                width: 75px;
+                height: 75px;
+
+            }
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, x-large)) {
+        div {
+            svg {
+                width: 85px;
+                height: 85px;
+
+            }
+        }
+    }
+}
+
+
+@keyframes colorChanger {
+    0% {
+        fill: $firstColor;
+
+    }
+
+    2% {
+        fill: $thirdColor;
+        transform: scale(1.2);
+    }
+
+    40% {
+        fill: $firstColor;
+        transform: scale(1);
+    }
+
+    100% {
+        fill: $firstColor
+    }
+}
