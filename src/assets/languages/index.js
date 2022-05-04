@@ -1,4 +1,5 @@
 export * from "./addUserLg";
+export * from "./footerLg";
 export * from "./generalInfoLg";
 export * from "./needHaveTransportLg";
 export * from "./loginPannelLg";

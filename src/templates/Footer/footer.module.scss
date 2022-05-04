@@ -1,0 +1,94 @@
+@import "../../StylesRoot/common.scss";
+
+.wrapper {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+
+    background-color: $firstColor;
+
+
+    .inside {
+        width: 80%;
+
+        padding-top: 20px;
+        padding-bottom: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        .info {
+            flex-basis: 50%;
+
+            h3 {
+                font-size: $s-fz;
+            }
+
+            p {
+                font-size: $s-fz/1.3;
+            }
+        }
+
+        .links {
+            flex-basis: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+
+            a {
+                color: $thirdColor;
+                font-weight: 700;
+                transition: $transition;
+                text-decoration: none;
+
+                &:hover {
+                    color: $doneColor;
+                }
+            }
+        }
+
+        .copy {
+            flex-basis: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+
+            p {
+                font-weight: 700;
+            }
+
+            a {
+                color: $thirdColor;
+                font-weight: 700;
+                transition: $transition;
+
+                &:hover {
+                    color: $doneColor;
+                }
+            }
+
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, medium)) {
+        .inside {
+
+            .info {
+
+                h3 {
+                    font-size: $xl-fz*1.2;
+                }
+
+                p {
+                    font-size: $s-fz;
+                }
+            }
+        }
+    }
+}

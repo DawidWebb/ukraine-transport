@@ -10,4 +10,5 @@ export { default as MyItems } from "./MyItems";
 export { default as Spinner } from "./Spinner";
 export { default as StartGraphicsItem } from "./StartGraphicsItem";
 export { default as TaskInformation } from "./TaskInformation";
+export { default as TopArrow } from "./TopArrow";
 export { default as TransportItem } from "./TransportItem";

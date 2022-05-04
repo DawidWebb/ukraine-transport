@@ -1,0 +1,39 @@
+@import "../../StylesRoot/common.scss";
+
+.wrapper {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+
+
+    .info {
+        display: none;
+        text-align: center;
+        background-color: black;
+        color: white;
+        font-weight: 700;
+        border-radius: $radius;
+        margin-bottom: 10px;
+
+    }
+
+    .arrow {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        border-radius: 50%;
+        border-bottom: 2px solid $firstColor;
+        cursor: pointer;
+
+
+    }
+
+    &:hover>.info {
+        display: block;
+    }
+}
