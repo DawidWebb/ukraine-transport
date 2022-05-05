@@ -1,4 +1,5 @@
 export { default as AddUserPannel } from "./AddUserPannel";
+export { default as ContactViev } from "./ContactViev";
 export { default as Footer } from "./Footer";
 export { default as HaveTransport } from "./HaveTransport";
 export { default as NeedTransport } from "./NeedTransport";

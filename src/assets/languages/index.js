@@ -1,4 +1,5 @@
 export * from "./addUserLg";
+export * from "./contactLg";
 export * from "./footerLg";
 export * from "./generalInfoLg";
 export * from "./needHaveTransportLg";

@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { Routes, Route, Navigate } from "react-router-dom";
 import {
   AddUserPannel,
+  ContactViev,
   HaveTransport,
   NeedTransport,
   StartViev,
@@ -21,6 +22,7 @@ const MainSwitch = () => {
         <Route exact path="/add-user" element={<AddUserPannel />} />
         <Route exact path="/have-transport" element={<HaveTransport />} />
         <Route exact path="/need-transport" element={<NeedTransport />} />
+        <Route exact path="/contact" element={<ContactViev />} />
 
         {user.length || cookie.isCookie || localStorage ? (
           <Route exact path="/my-items" element={<MyItems />} />

@@ -41,6 +41,8 @@ const Menu = () => {
       navigate("/have-transport");
     } else if (e.target.id === "needTransport") {
       navigate("/need-transport");
+    } else if (e.target.id === "contact") {
+      navigate("/contact");
     }
   };
 

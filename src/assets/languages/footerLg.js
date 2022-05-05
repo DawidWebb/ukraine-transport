@@ -13,7 +13,7 @@ export const FOOTER_LINKS_LG = [
   },
   {
     id: "footer-contact",
-    link: "/",
+    link: "/contact",
     pl: "kontakt",
     ua: "контакт",
   },
