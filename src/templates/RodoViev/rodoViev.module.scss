@@ -1,0 +1,32 @@
+@import "../../StylesRoot/common.scss";
+
+.wrapper {
+    width: 100%;
+    padding-top: 80px;
+
+    .inside {
+        width: 80%;
+        margin: 40px auto;
+
+        h1 {
+            text-align: center;
+        }
+
+        h3 {
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            font-size: $xs-fz;
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, large)) {
+        .inside {
+            p {
+                font-size: $xl-fz;
+            }
+        }
+    }
+}

@@ -6,6 +6,7 @@ import {
   HaveTransport,
   NeedTransport,
   StartViev,
+  RodoViev,
 } from "../../templates";
 import { MyItems } from "../../components";
 
@@ -23,6 +24,7 @@ const MainSwitch = () => {
         <Route exact path="/have-transport" element={<HaveTransport />} />
         <Route exact path="/need-transport" element={<NeedTransport />} />
         <Route exact path="/contact" element={<ContactViev />} />
+        <Route exact path="/rodo" element={<RodoViev />} />
 
         {user.length || cookie.isCookie || localStorage ? (
           <Route exact path="/my-items" element={<MyItems />} />
