@@ -1,0 +1,48 @@
+@import "../../StylesRoot/common.scss";
+
+.wrapper {
+    width: 100%;
+    min-height: 80vh;
+    padding: 100px;
+
+    .inside {
+        width: 80%;
+        margin: 0 auto;
+
+        h2 {
+            text-align: center;
+            color: $thirdColor;
+        }
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+
+            button {
+                @include standardButton;
+                width: 160px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, x-large)) {
+        .inside {
+
+
+            .buttons {
+
+
+                button {
+
+                    width: 200px;
+
+                }
+            }
+        }
+    }
+}

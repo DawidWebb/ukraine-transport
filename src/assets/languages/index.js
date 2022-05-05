@@ -9,3 +9,4 @@ export * from "./needHaveTransportLg";
 export * from "./RodoLg";
 export * from "./startLg";
 export * from "./transportItemLg";
+export * from "./userAccountLg";

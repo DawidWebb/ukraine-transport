@@ -1,5 +1,6 @@
 export { default as AddItem } from "./AddItem";
 export { Button } from "./Buttons";
+export { default as ChangePassword } from "./ChangePassword";
 export { default as DeleteConfirmation } from "./DeleteConfirmation";
 export { default as EditItem } from "./EditItem";
 export { default as LoginPannel } from "./LoginPannel";

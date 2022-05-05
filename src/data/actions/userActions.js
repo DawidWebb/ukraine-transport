@@ -70,6 +70,7 @@ export const lostPassword = (userLogin) => async (dispatch) => {
 export const editUser = (userData) => async (dispatch) => {
   dispatch(addSpinner());
   const { status } = await request.put("/users", userData);
+  console.log(status);
   if (status === 202) {
     dispatch(removeSpinner());
     dispatch(timeoutShowTask(`Dane użytkownika zaktualizowane`));

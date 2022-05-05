@@ -8,7 +8,11 @@ const Footer = () => {
   const sessionStorege = useSelector((store) => store.sessionStorege);
 
   const linksViev = FOOTER_LINKS_LG.map((item) => (
-    <Link key={item.id} to={item.link}>
+    <Link
+      key={item.id}
+      to={item.link}
+      href="../../../public/assets/regulaminPL.pdf"
+    >
       {sessionStorege === "PL" ? item.pl : item.ua}
     </Link>
   ));
@@ -16,7 +20,23 @@ const Footer = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.inside}>
-        <div className={styles.links}>{linksViev}</div>
+        <div className={styles.links}>
+          <a href="/assets/regulaminPL.pdf" target="blank">
+            {sessionStorege === "PL"
+              ? FOOTER_LINKS_LG[0].pl
+              : FOOTER_LINKS_LG[0].ua}
+          </a>
+          <Link to={FOOTER_LINKS_LG[1].link}>
+            {sessionStorege === "PL"
+              ? FOOTER_LINKS_LG[1].pl
+              : FOOTER_LINKS_LG[1].ua}
+          </Link>
+          <Link to={FOOTER_LINKS_LG[2].link}>
+            {sessionStorege === "PL"
+              ? FOOTER_LINKS_LG[2].pl
+              : FOOTER_LINKS_LG[2].ua}
+          </Link>
+        </div>
         <div className={styles.info}>
           <h3>TransForUkraine</h3>
           <p>
