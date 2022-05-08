@@ -135,10 +135,10 @@ export const addLogout = () => (dispatch) => {
   });
 };
 
-export const deleteUser = (userData) => async (dispatch) => {
+export const deleteUser = (id) => async (dispatch) => {
   dispatch(addSpinner());
-  const { id, password } = userData;
-  const { data, status } = await request.delete(`users/${id}.${password}`);
+
+  const { data, status } = await request.delete(`users/${id}`);
 
   if (status === 200) {
     dispatch(removeSpinner());

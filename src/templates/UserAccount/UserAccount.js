@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Button, ChangePassword } from "../../components";
+import { Button, ChangePassword, DeleteConfirmation } from "../../components";
 import {
   USER_ACCOUNT_BUTTONS_LG,
   USER_ACCOUNT_TITLE_LG,
@@ -9,12 +9,24 @@ import styles from "./userAccount.module.scss";
 
 const UserAccount = () => {
   const sessionStorege = useSelector((store) => store.sessionStorege);
+  const localStorage = useSelector(
+    (store) => store.localStorage[0].storageData
+  );
 
   const [isChangePassModalOpen, setIsChangePassModalOpen] = useState(false);
+  const [isDelConfirmModalOpen, setIsDelConfirmModalOpen] = useState(false);
+  const [elementToDel, setElementToDel] = useState(false);
 
   const handleClickButtonById = (e) => {
     if (e.target.id === "user-button-change") {
       setIsChangePassModalOpen(true);
+    } else if (e.target.id === "user-button-del") {
+      setElementToDel({
+        kindOfItem: "user",
+        idElementToDel: localStorage.id,
+      });
+      setIsDelConfirmModalOpen(true);
+    } else if (e.target.id === "user-button-activity") {
     }
   };
 
@@ -41,6 +53,11 @@ const UserAccount = () => {
       <ChangePassword
         isModalOpen={isChangePassModalOpen}
         setIsModalOpen={setIsChangePassModalOpen}
+      />
+      <DeleteConfirmation
+        isDeleteConfirmationModalOpen={isDelConfirmModalOpen}
+        setIsDeleteConfirmationModalOpen={setIsDelConfirmModalOpen}
+        elementToDel={elementToDel}
       />
     </div>
   );
