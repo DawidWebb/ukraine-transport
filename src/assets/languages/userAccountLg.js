@@ -61,3 +61,16 @@ export const USER_ACCOUNT_VALIDATION_LG = [
     ua: "паролі відрізняються один від одного",
   },
 ];
+
+export const USER_ACCOUNT_ACTIVITY_LG = [
+  {
+    id: "no-haves",
+    pl: "nie masz żadnych zgłoszonych pojazdów",
+    ua: "у вас немає зареєстрованих транспортних засобів",
+  },
+  {
+    id: "no-needs",
+    pl: "nie masz żadnych zgłoszonych potrzeb transportu",
+    ua: "у вас немає повідомлень про транспортні потреби",
+  },
+];

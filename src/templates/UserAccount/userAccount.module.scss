@@ -3,11 +3,12 @@
 .wrapper {
     width: 100%;
     min-height: 80vh;
-    padding: 100px;
+    padding-top: 100px;
 
     .inside {
-        width: 80%;
+        width: 90%;
         margin: 0 auto;
+
 
         h2 {
             text-align: center;
@@ -26,6 +27,34 @@
                 @include standardButton;
                 width: 160px;
                 margin-bottom: 20px;
+            }
+        }
+
+        .activity {
+
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+
+            .items {
+                margin-top: 30px;
+
+                p {
+                    text-align: center;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width:map-get($breakpoints, large)) {
+        .inside {
+            .activity {
+
+
+                flex-direction: row;
+
+
             }
         }
     }
