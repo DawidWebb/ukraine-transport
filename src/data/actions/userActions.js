@@ -17,15 +17,18 @@ export const USER_EDIT = "USER_EDIT";
 export const SET_PASSWORD = "SET_PASSWORD";
 
 export const addUser = (userData) => async (dispatch) => {
+  const { language } = userData;
   dispatch(addSpinner());
   const { data, status } = await request.post("users/add", userData);
   if (status === 200) {
     dispatch(removeSpinner());
-    dispatch(timeoutShowTask(`Użytkownik ${userData.name} dodany`));
-    dispatch({
-      type: USER_ADD,
-      payload: `Użytkownik ${userData.name} dodany, lecz jest nie aktywny. Sprawdź maila podanego przy rejestracji i postępuj zgodnie z zawartymi w nim instrukcjami.`,
-    });
+    dispatch(
+      timeoutShowTask(
+        language === "PL"
+          ? `Użytkownik ${userData.name} dodany`
+          : `Користувач ${userData.name} додано`
+      )
+    );
   } else {
     dispatch(removeSpinner());
     dispatch(timeoutShowTask(data.message));
@@ -47,19 +50,24 @@ export const confrimAddUser = (userLogin) => async (dispatch) => {
   }
 };
 
-export const lostPassword = (userLogin) => async (dispatch) => {
+export const lostPassword = (userData) => async (dispatch) => {
+  const { login, language } = userData;
   dispatch(addSpinner());
   const { data, status } = await request.get(
-    `users/lost-password/${userLogin}`
+    `users/lost-password/${login}/${language}`
   );
-  if (status === 200) {
+  if (status === 202) {
     dispatch(removeSpinner());
     dispatch({
       type: SET_PASSWORD,
       payload: data.message,
     });
     dispatch(
-      timeoutShowTask("Na podany adres eMail zostało wysłane hasło tymczasowe")
+      timeoutShowTask(
+        language === "PL"
+          ? "Na podany adres eMail zostało wysłane hasło tymczasowe"
+          : "На вказану адресу електронної пошти надіслано тимчасовий пароль"
+      )
     );
   } else {
     dispatch(removeSpinner());
@@ -68,20 +76,35 @@ export const lostPassword = (userLogin) => async (dispatch) => {
 };
 
 export const editUser = (userData) => async (dispatch) => {
+  const { language } = userData;
   dispatch(addSpinner());
   const { status } = await request.put("/users", userData);
   console.log(status);
   if (status === 202) {
     dispatch(removeSpinner());
-    dispatch(timeoutShowTask(`Dane użytkownika zaktualizowane`));
+    dispatch(
+      timeoutShowTask(
+        language === "PL"
+          ? "Dane użytkownika zaktualizowane"
+          : "Дані користувача оновлені"
+      )
+    );
   } else if (status === 404) {
     dispatch(removeSpinner());
-    dispatch(timeoutShowTask("W tym momencie nie jest możliwa zmiana zasobów"));
+    dispatch(
+      timeoutShowTask(
+        language === "PL"
+          ? "W tym momencie nie jest możliwa zmiana zasobów"
+          : "На даний момент змінити ресурси неможливо"
+      )
+    );
   } else {
     dispatch(removeSpinner());
     dispatch(
       timeoutShowTask(
-        `Przepraszamy błąd po stronie serwera, spróbuj jeszcze raz`
+        language === "PL"
+          ? "Przepraszamy błąd po stronie serwera, spróbuj za kilka minut."
+          : "На жаль, помилка на стороні сервера, будь ласка, спробуйте за кілька хвилин."
       )
     );
   }
@@ -135,10 +158,12 @@ export const addLogout = () => (dispatch) => {
   });
 };
 
-export const deleteUser = (id) => async (dispatch) => {
+export const deleteUser = (userData) => async (dispatch) => {
+  const { id, language } = userData;
+
   dispatch(addSpinner());
 
-  const { data, status } = await request.delete(`users/${id}`);
+  const { data, status } = await request.delete(`users/${id}/${language}`);
 
   if (status === 200) {
     dispatch(removeSpinner());
@@ -147,7 +172,13 @@ export const deleteUser = (id) => async (dispatch) => {
     dispatch({
       type: USER_LOGOUT,
     });
-    dispatch(timeoutShowTask("Twoje konto zostało usunięte"));
+    dispatch(
+      timeoutShowTask(
+        language === "PL"
+          ? "Twoje konto zostało usunięte"
+          : "Ваш обліковий запис видалено"
+      )
+    );
   } else {
     dispatch(removeSpinner());
     dispatch(timeoutShowTask(data.message));

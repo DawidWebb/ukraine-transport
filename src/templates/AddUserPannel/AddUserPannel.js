@@ -50,6 +50,9 @@ const AddUserPannel = () => {
       password: values.password,
       name: values.name,
       dateofAdd: new Date(),
+      language: sessionStorege,
+      rodo: values.rodo,
+      conditions: values.conditions,
     };
     dispatch(addUser(userData));
     navigate("/");
@@ -150,6 +153,8 @@ const AddUserPannel = () => {
                       )}
                       <input
                         type="password"
+                        min="5"
+                        max="15"
                         {...input}
                         placeholder={
                           sessionStorege === "PL"

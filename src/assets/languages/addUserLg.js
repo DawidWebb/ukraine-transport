@@ -14,8 +14,8 @@ export const ADD_USER_MAIL_LG = {
 };
 
 export const ADD_USER_PASS_LG = {
-  pl: "Hasło",
-  ua: "Пароль",
+  pl: "Hasło 5-15 znaków",
+  ua: "Пароль 5-15 символів",
 };
 
 export const ADD_USER_RE_PASS_LG = {

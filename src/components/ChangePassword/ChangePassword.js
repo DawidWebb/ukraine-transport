@@ -56,13 +56,14 @@ const ChangePasword = ({ isModalOpen, setIsModalOpen }) => {
       }, 4000);
       clearTimeout();
     } else {
-      console.log("OK");
       setValidationInfo("");
       const userData = {
         id: localStorage.id,
         password: newPass,
+        language: sessionStorege,
       };
       dispatch(editUser(userData));
+      setIsModalOpen(false);
     }
   };
 

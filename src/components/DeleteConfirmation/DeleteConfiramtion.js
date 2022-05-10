@@ -39,7 +39,11 @@ const DeleteConfirmation = ({
     } else if (elementToDel.kindOfItem === "need") {
       dispatch(delNeeds(elementToDel.idElementToDel));
     } else if (elementToDel.kindOfItem === "user") {
-      dispatch(deleteUser(elementToDel.idElementToDel));
+      const userData = {
+        id: elementToDel.idElementToDel,
+        language: sessionStorege,
+      };
+      dispatch(deleteUser(userData));
     }
 
     setIsDeleteConfirmationModalOpen(false);

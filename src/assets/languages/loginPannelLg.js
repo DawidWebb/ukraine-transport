@@ -17,3 +17,8 @@ export const PASS_LG = {
   pl: "hasło",
   ua: "пароль",
 };
+
+export const LOST_PASS_MASS_LG = {
+  pl: "Wpisz adres eMail podany przy zakładaniu konta - prześlemy hasło tymczasowe",
+  ua: "Введіть адресу електронної пошти, вказану під час створення облікового запису – ми надішлемо вам тимчасовий пароль",
+};
