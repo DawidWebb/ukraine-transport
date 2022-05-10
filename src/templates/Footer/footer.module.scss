@@ -6,6 +6,7 @@
     align-items: center;
     width: 100%;
     background-color: $firstColor;
+    height: 280px;
 
     .inside {
         width: 80%;
@@ -69,6 +70,10 @@
             }
 
         }
+    }
+
+    @media screen and (orientation: landscape) {
+        height: 200px;
     }
 
     @media screen and (min-width:map-get($breakpoints, medium)) {

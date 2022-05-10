@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllTransports, setKindOfItem } from "../../data/actions";
 import { AddItem, Button, TransportItem } from "../../components";
@@ -41,12 +41,14 @@ const HaveTransport = () => {
         if (item.kindOfTransport === kindOfTransport) {
           foundItems.push(item);
         }
+        return foundItems;
       });
     } else if (kindOfTransport === "pepole") {
       transportItem.map((item) => {
         if (item.kindOfTransport === kindOfTransport) {
           foundItems.push(item);
         }
+        return foundItems;
       });
     }
     return foundItems;
@@ -67,27 +69,28 @@ const HaveTransport = () => {
     setSelectedTransport(e.target.value);
   };
 
-  const transportItemsSearchByCityViev = !foundItems.length
-    ? sessionStorege === "PL"
-      ? EMPTY_LG.pl
-      : EMPTY_LG.ua
-    : foundItems.reverse().map((item) => {
-        if (selectedCity === "") {
-          return (
-            <TransportItem
-              key={item._id}
-              item={item}
-              buttons={false}
-              kindOfItem="have"
-            />
-          );
-        } else if (
-          item.loadCity.toUpperCase().includes(selectedCity.toUpperCase()) ||
-          item.delCity.toUpperCase().includes(selectedCity.toUpperCase())
-        ) {
-          return <TransportItem key={item._id} item={item} kindOfItem="have" />;
-        }
-      });
+  const transportItemsSearchByCityViev = !foundItems.length ? (
+    <h3>{sessionStorege === "PL" ? EMPTY_LG.pl : EMPTY_LG.ua}</h3>
+  ) : (
+    foundItems.reverse().map((item) => {
+      if (selectedCity === "") {
+        return (
+          <TransportItem
+            key={item._id}
+            item={item}
+            buttons={false}
+            kindOfItem="have"
+          />
+        );
+      } else if (
+        item.loadCity.toUpperCase().includes(selectedCity.toUpperCase()) ||
+        item.delCity.toUpperCase().includes(selectedCity.toUpperCase())
+      ) {
+        return <TransportItem key={item._id} item={item} kindOfItem="have" />;
+      }
+      return foundItems;
+    })
+  );
 
   const handleAddVechicle = () => {
     setIsAddVechicleModalOpen(true);

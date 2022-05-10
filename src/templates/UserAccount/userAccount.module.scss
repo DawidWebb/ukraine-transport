@@ -2,7 +2,7 @@
 
 .wrapper {
     width: 100%;
-    min-height: 80vh;
+    min-height: calc(100vh - 280px);
     padding-top: 100px;
 
     .inside {
@@ -16,7 +16,7 @@
         }
 
         .buttons {
-            margin-top: 30px;
+            padding-top: 30px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -45,6 +45,10 @@
                 }
             }
         }
+    }
+
+    @media screen and (orientation: landscape) {
+        min-height: calc(100vh - 200px);
     }
 
     @media screen and (min-width:map-get($breakpoints, large)) {

@@ -2,8 +2,8 @@
 
 .wrapper {
     width: 100%;
-    min-height: 100vh;
-    margin-top: 80px;
+    min-height: calc(100vh - 280px);
+    padding-top: 80px;
 
     .inside {
         display: flex;
@@ -99,7 +99,17 @@
             }
         }
 
-        .itemsViev {}
+        .itemsViev {
+            h3 {
+                text-align: center;
+                padding-top: 30px;
+                color: $thirdColor;
+            }
+        }
+    }
+
+    @media screen and (orientation: landscape) {
+        min-height: calc(100vh - 200px);
     }
 
     @media screen and (min-width:map-get($breakpoints, small)) {

@@ -10,7 +10,6 @@
   z-index: 200;
   backdrop-filter: blur(2px);
 
-
   .wrapper {
     position: absolute;
     top: 50%;
@@ -21,6 +20,7 @@
     border: none;
     background-color: $firstColor;
     border-radius: $radius;
+    border: 1px solid $thirdColor;
 
 
     @media screen and (orientation: landscape) {
