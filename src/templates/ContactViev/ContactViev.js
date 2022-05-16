@@ -1,6 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Form, Field } from "react-final-form";
+import { sendMailByUserForm } from "../../data/actions";
 import { Button } from "../../components";
 import {
   ADD_USER_NAME_LG,
@@ -24,7 +25,18 @@ const ContactViev = () => {
     </option>
   ));
 
-  const handleOnSubmit = (values) => {};
+  const dispatch = useDispatch();
+
+  const handleOnSubmit = (values) => {
+    const formData = {
+      userMail: values.email,
+      userName: values.name,
+      title: values.title,
+      content: values.info,
+      language: sessionStorege,
+    };
+    dispatch(sendMailByUserForm(formData));
+  };
 
   const required = (value) =>
     value
@@ -121,6 +133,7 @@ const ContactViev = () => {
                   {({ input, meta }) => (
                     <div>
                       <textarea
+                        {...input}
                         placeholder={
                           sessionStorege === "PL"
                             ? CONTACT_MENU_LG[2].pl

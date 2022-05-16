@@ -16,6 +16,8 @@ const DeleteConfirmation = ({
 }) => {
   const sessionStorege = useSelector((store) => store.sessionStorege);
 
+  console.log(elementToDel);
+
   const mainInfo =
     sessionStorege === "PL"
       ? GENERAL_DELETE_CONFORMATION_LG.pl

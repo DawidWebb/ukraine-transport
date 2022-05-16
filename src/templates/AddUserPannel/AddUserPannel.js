@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { taskMessengerOnly, addUser } from "../../data/actions";
+
 import { Form, Field } from "react-final-form";
 import { Button } from "../../components";
 import {
@@ -14,6 +15,7 @@ import {
   ADD_USER_PASS_LG,
   ADD_USER_RE_PASS_LG,
   ADD_USER_DIF_PASS_LG,
+  ADD_USER_PASS_REQUIRE,
   ADD_USER_RODO_LG,
   ADD_USER_CONDITIONS_LG,
 } from "../../assets/languages";
@@ -33,6 +35,7 @@ const AddUserPannel = () => {
   };
 
   const handleOnSubmit = (values) => {
+    console.log(passwordChanged(values.password));
     if (values.password !== values.repassword) {
       dispatch(
         taskMessengerOnly(
@@ -57,6 +60,45 @@ const AddUserPannel = () => {
     dispatch(addUser(userData));
     navigate("/");
   };
+
+  const passwordChanged = (value) => {
+    const strongRegex = new RegExp(
+      "^(?=.{14,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$",
+      "g"
+    );
+    const mediumRegex = new RegExp(
+      "^(?=.{10,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$",
+      "g"
+    );
+    const enoughRegex = new RegExp("(?=.{8,}).*", "g");
+
+    if (!value) {
+      return sessionStorege === "PL"
+        ? ADD_USER_PASS_REQUIRE[0].pl
+        : ADD_USER_PASS_REQUIRE[0].ua;
+    } else if (false === enoughRegex.test(value)) {
+      return sessionStorege === "PL"
+        ? ADD_USER_PASS_REQUIRE[1].pl
+        : ADD_USER_PASS_REQUIRE[1].ua;
+    } else if (strongRegex.test(value)) {
+      return sessionStorege === "PL" ? (
+        <p style={{ color: "green" }}>{ADD_USER_PASS_REQUIRE[4].pl}</p>
+      ) : (
+        <p style={{ color: "green" }}>{ADD_USER_PASS_REQUIRE[4].ua}</p>
+      );
+    } else if (mediumRegex.test(value)) {
+      return sessionStorege === "PL" ? (
+        <p style={{ color: "blue" }}>{ADD_USER_PASS_REQUIRE[3].pl}</p>
+      ) : (
+        <p style={{ color: "blue" }}>{ADD_USER_PASS_REQUIRE[3].ua}</p>
+      );
+    } else {
+      return sessionStorege === "PL"
+        ? ADD_USER_PASS_REQUIRE[2].pl
+        : ADD_USER_PASS_REQUIRE[2].ua;
+    }
+  };
+
   const required = (value) =>
     value
       ? undefined
@@ -139,22 +181,12 @@ const AddUserPannel = () => {
               </div>
 
               <div className={styles.element}>
-                <Field name="password" validate={required}>
+                <Field name="password" validate={passwordChanged}>
                   {({ input, meta }) => (
                     <div>
-                      {values.password ? (
-                        <p>
-                          {sessionStorege === "PL"
-                            ? ADD_USER_PASS_LG.pl
-                            : ADD_USER_PASS_LG.ua}
-                        </p>
-                      ) : (
-                        <p> </p>
-                      )}
                       <input
                         type="password"
-                        min="5"
-                        max="15"
+                        max="20"
                         {...input}
                         placeholder={
                           sessionStorege === "PL"

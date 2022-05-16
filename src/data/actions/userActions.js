@@ -54,7 +54,7 @@ export const lostPassword = (userData) => async (dispatch) => {
   const { login, language } = userData;
   dispatch(addSpinner());
   const { data, status } = await request.get(
-    `users/lost-password/${login}/${language}`
+    `users/lost-password/${login}.${language}`
   );
   if (status === 202) {
     dispatch(removeSpinner());
@@ -161,9 +161,11 @@ export const addLogout = () => (dispatch) => {
 export const deleteUser = (userData) => async (dispatch) => {
   const { id, language } = userData;
 
+  console.log(id);
+
   dispatch(addSpinner());
 
-  const { data, status } = await request.delete(`users/${id}/${language}`);
+  const { data, status } = await request.delete(`users/${id}.${language}`);
 
   if (status === 200) {
     dispatch(removeSpinner());
@@ -177,6 +179,23 @@ export const deleteUser = (userData) => async (dispatch) => {
         language === "PL"
           ? "Twoje konto zostało usunięte"
           : "Ваш обліковий запис видалено"
+      )
+    );
+  } else {
+    dispatch(removeSpinner());
+    dispatch(timeoutShowTask(data.message));
+  }
+};
+
+export const sendMailByUserForm = (formData) => async (dispatch) => {
+  const { language } = formData;
+  dispatch(addSpinner());
+  const { data, status } = await request.post(`admin/form/`, formData);
+  if (status === 200) {
+    dispatch(removeSpinner());
+    dispatch(
+      timeoutShowTask(
+        language === "PL" ? "Twój mail został wysłany" : "Ваш e-mail надіслано"
       )
     );
   } else {
