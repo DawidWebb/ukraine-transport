@@ -1,21 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { FOOTER_LINKS_LG } from "../../assets/languages";
+import { FOOTER_LINKS_LG, FOOTER_INFO_LG } from "../../assets/languages";
 import styles from "./footer.module.scss";
 
 const Footer = () => {
   const sessionStorege = useSelector((store) => store.sessionStorege);
-
-  const linksViev = FOOTER_LINKS_LG.map((item) => (
-    <Link
-      key={item.id}
-      to={item.link}
-      href="../../../public/assets/regulaminPL.pdf"
-    >
-      {sessionStorege === "PL" ? item.pl : item.ua}
-    </Link>
-  ));
 
   return (
     <div className={styles.wrapper}>
@@ -40,10 +30,7 @@ const Footer = () => {
         <div className={styles.info}>
           <h3>TransForUkraine</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos omnis
-            repudiandae aliquid non? Veritatis, aperiam. Illum ipsa fugiat nisi
-            corporis aperiam labore asperiores nostrum perspiciatis, maxime vel
-            quae accusantium recusandae.
+            {sessionStorege === "PL" ? FOOTER_INFO_LG.pl : FOOTER_INFO_LG.ua}
           </p>
         </div>
         <div className={styles.copy}>

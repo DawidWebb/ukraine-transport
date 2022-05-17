@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Menu } from "../../components";
 import {
@@ -13,6 +14,12 @@ const Header = () => {
   const sessionStorege = useSelector((store) => store.sessionStorege);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleGoToStart = () => {
+    window.scroll(0, 0);
+    navigate("/");
+  };
 
   useEffect(() => {
     dispatch(cookieCheck());
@@ -33,9 +40,7 @@ const Header = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.inside}>
-        <div className={styles.logoName}>
-          <p>#TransForUkraine</p>
-        </div>
+        <div className={styles.logoName} onClick={handleGoToStart}></div>
 
         <div className={styles.menu}>
           <Menu />

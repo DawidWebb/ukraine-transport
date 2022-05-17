@@ -21,7 +21,12 @@
         align-items: center;
 
         .logoName {
-            flex-basis: 40%;
+            width: 160px;
+            height: 70px;
+            background-image: url("../../assets/images/free-logo.jpg");
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
         }
 
         .language {
@@ -50,12 +55,11 @@
         }
     }
 
+
+
     @media screen and (min-width:map-get($breakpoints, large)) {
         .inside {
-            .logoName {
-                flex-basis: 10%;
-                border: 1px solid red;
-            }
+
 
             .menu {
                 flex-basis: 78%;
