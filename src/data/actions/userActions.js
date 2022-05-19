@@ -79,7 +79,7 @@ export const editUser = (userData) => async (dispatch) => {
   const { language } = userData;
   dispatch(addSpinner());
   const { status } = await request.put("/users", userData);
-  console.log(status);
+
   if (status === 202) {
     dispatch(removeSpinner());
     dispatch(
@@ -160,8 +160,6 @@ export const addLogout = () => (dispatch) => {
 
 export const deleteUser = (userData) => async (dispatch) => {
   const { id, language } = userData;
-
-  console.log(id);
 
   dispatch(addSpinner());
 

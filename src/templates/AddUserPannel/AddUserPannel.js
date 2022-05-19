@@ -35,7 +35,6 @@ const AddUserPannel = () => {
   };
 
   const handleOnSubmit = (values) => {
-    console.log(passwordChanged(values.password));
     if (values.password !== values.repassword) {
       dispatch(
         taskMessengerOnly(
