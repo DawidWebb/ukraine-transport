@@ -11,7 +11,14 @@ const Footer = () => {
     <div className={styles.wrapper}>
       <div className={styles.inside}>
         <div className={styles.links}>
-          <a href="/assets/regulaminPL.pdf" target="blank">
+          <a
+            href={`${
+              sessionStorege === "PL"
+                ? "/assets/regulaminPL_v1.pdf"
+                : "/assets/regulaminUA_v1.pdf"
+            }`}
+            target="blank"
+          >
             {sessionStorege === "PL"
               ? FOOTER_LINKS_LG[0].pl
               : FOOTER_LINKS_LG[0].ua}
