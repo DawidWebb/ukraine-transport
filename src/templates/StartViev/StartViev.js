@@ -49,7 +49,7 @@ const StartViev = () => {
           </h3>
         </div>
         <div className={styles.startLinks}>
-          <Link to="/have-transport">
+          <Link to="/need-transport">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24px"
@@ -66,7 +66,7 @@ const StartViev = () => {
                 : START_LINKS_LG[0].ua}
             </p>
           </Link>
-          <Link to="/need-transport">
+          <Link to="/have-transport">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24px"

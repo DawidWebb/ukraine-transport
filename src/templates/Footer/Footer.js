@@ -14,8 +14,8 @@ const Footer = () => {
           <a
             href={`${
               sessionStorege === "PL"
-                ? "/assets/regulaminPL_v1.pdf"
-                : "/assets/regulaminUA_v1.pdf"
+                ? "http://www.uatransport.tslmanagement.pl/assets/RegulaminPL_v1"
+                : "http://www.uatransport.tslmanagement.pl/assets/RegulaminUA_v1"
             }`}
             target="blank"
           >

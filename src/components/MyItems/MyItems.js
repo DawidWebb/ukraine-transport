@@ -3,11 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { AddItem, Button, TransportItem } from "../../components";
-import {
-  ADD_BTN_LG,
-  VECHICLE_ITEMS_LG,
-  NEEDS_ITEMS_LG,
-} from "../../assets/languages";
+import { VECHICLE_ITEMS_LG, NEEDS_ITEMS_LG } from "../../assets/languages";
 import styles from "./myItems.module.scss";
 
 const MyItems = () => {

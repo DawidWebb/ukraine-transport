@@ -6,13 +6,13 @@ export const addItem = (data) => {
     addDate: data.addDate,
     eMail: data.eMail,
   };
-  window.localStorage.setItem("user", JSON.stringify(user));
+  window.localStorage.setItem("userUaTransport", JSON.stringify(user));
 };
 
 export const deleteItem = () => {
-  window.localStorage.removeItem("user");
+  window.localStorage.removeItem("userUaTransport");
 };
 
 export const checkItem = () => {
-  return JSON.parse(window.localStorage.getItem("user"));
+  return JSON.parse(window.localStorage.getItem("userUaTransport"));
 };

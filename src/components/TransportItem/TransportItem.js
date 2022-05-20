@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Button, DeleteConfirmation, EditItem } from "../../components";
 import {
   HEAVY_TRANSPORT_LG,
@@ -14,8 +14,6 @@ const TransportItem = ({ item, buttons, kindOfItem }) => {
     (store) => store.localStorage[0].storageData
   );
   const cookie = useSelector((store) => store.cookie[0].isCookie);
-
-  const dispatch = useDispatch();
 
   const [isSelectedViev, setIsSelectedViev] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);

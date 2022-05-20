@@ -1,11 +1,11 @@
 export const addSessionItem = (language) => {
-  window.sessionStorage.setItem("userLang", language);
+  window.sessionStorage.setItem("userLangUATrans", language);
 };
 
 export const deleteSessionItem = () => {
-  window.sessionStorage.removeItem("userLang");
+  window.sessionStorage.removeItem("userLangUATrans");
 };
 
 export const checkSessionItem = () => {
-  return window.sessionStorage.getItem("userLang");
+  return window.sessionStorage.getItem("userLangUATrans");
 };

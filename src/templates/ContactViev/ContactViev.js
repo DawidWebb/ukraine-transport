@@ -9,10 +9,6 @@ import {
   ADD_USER_MAIL_LG,
   CONTACT_FORM_OPTIONS_LG,
   GENERAL_REQUIRED_INFO,
-  GENERAL_BTN_EXIT,
-  GENERAL_BTN_SAVE,
-  ADD_USER_RODO_LG,
-  ADD_USER_CONDITIONS_LG,
 } from "../../assets/languages";
 import styles from "./contactViev.module.scss";
 

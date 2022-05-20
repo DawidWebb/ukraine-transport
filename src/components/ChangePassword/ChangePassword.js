@@ -61,6 +61,7 @@ const ChangePasword = ({ isModalOpen, setIsModalOpen }) => {
           <p style={{ color: "green" }}>{ADD_USER_PASS_REQUIRE[4].ua}</p>
         )
       );
+      setNewPass(e.target.value);
     } else if (mediumRegex.test(e.target.value)) {
       setPasswordInfo(
         sessionStorege === "PL" ? (
@@ -69,6 +70,7 @@ const ChangePasword = ({ isModalOpen, setIsModalOpen }) => {
           <p style={{ color: "blue" }}>{ADD_USER_PASS_REQUIRE[3].ua}</p>
         )
       );
+      setNewPass(e.target.value);
     } else {
       setPasswordInfo(
         sessionStorege === "PL" ? (
@@ -77,6 +79,7 @@ const ChangePasword = ({ isModalOpen, setIsModalOpen }) => {
           <p>{ADD_USER_PASS_REQUIRE[2].ua}</p>
         )
       );
+      setNewPass(e.target.value);
     }
   };
   const confirmPassword = (e) => {
