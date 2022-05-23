@@ -68,11 +68,13 @@ const NeedTransport = () => {
     e.preventDefault();
     setSelectedTransport(e.target.value);
   };
-
+  console.log("selectedCity", selectedCity);
   const transportItemsSearchByCityViev = !foundItems.length ? (
     <h3>{sessionStorege === "PL" ? EMPTY_LG.pl : EMPTY_LG.ua}</h3>
   ) : (
     foundItems.reverse().map((item) => {
+      console.log(item.loadCity);
+      console.log(item.delCity);
       if (selectedCity === "") {
         return (
           <TransportItem
@@ -88,7 +90,6 @@ const NeedTransport = () => {
       ) {
         return <TransportItem key={item._id} item={item} kindOfItem="need" />;
       }
-      return foundItems;
     })
   );
 

@@ -88,7 +88,6 @@ const HaveTransport = () => {
       ) {
         return <TransportItem key={item._id} item={item} kindOfItem="have" />;
       }
-      return foundItems;
     })
   );
 
